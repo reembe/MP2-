@@ -4,4 +4,9 @@ public Words
       {
       // return mutable object here
       }
+
+    public String toString()
+      {
+      return word;
+    }
   }
