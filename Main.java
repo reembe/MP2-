@@ -1,26 +1,49 @@
-/** A class with a method that converts
-  * an int to a String.
+/** A class that contains the GUI 
   * @author Reem
-  * @version 1.0 */
+  * @version 2.0 
+  * everything in this program is a placeholder until stated other wise */
+
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.io.IOException;
+
+import javax.sound.sampled.*;
+
+
 public class Main
   {
-    public static void main(String[] args)
-    {
-      int j = 0;
-      while(j != 3)
-        {
-          for(int i = 0; i > 7; i++)
-        {
-          System.out.print(i);
-        }
-          j++;
-        }
-    }
-     /** This method returns the parameter as a String.
-    * @param i an integer 
-    * @return the integer parameter as a String **/
-  public static String toString(int num)
+  public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException
   {
-    return num + "";
+      // User s= new User("Bob", 12, "Spanish");
+      // s.pickLanguage();
+
+     
+
+     MyFrame myFrame = new MyFrame();
+
   }
   }
+
+    //  public static void main(String[] args)
+    // {
+    //   String user name
+    //   int j = 0; 
+    //   while(j != 3)
+    //     {
+    //       for(int i = 0; i > 7; i++)
+    //     {
+    //       System.out.print(i);
+    //     }
+    //       j++;
+    //     }
+    // }
+  //    /** This method returns the parameter as a String.
+  //   * @param i an integer 
+  //   * @return the integer parameter as a String **/
+  // public static String toString(int num)
+  // {
+  //   return num + "";
+  // }
+  // }
