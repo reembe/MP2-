@@ -1,13 +1,13 @@
 **current wips**
 
--swing buttons being created in MyFrame class
+-swing buttons being created in the MyFrame class
 
--user methods being set up in User class
+-user methods being set up in the User class
 
--main method current holds only MyFrame constructor call
+-The main method currently holds only the MyFrame constructor call
 
 -games will be made when swing buttons are implemented 
 
--Words class is place holder for the class that will contain all our vocabulary methods
+-Words class is a placeholder for the class that will contain all our vocabulary methods
 
--check list is last priority 
+-The checklist is the last priority 
