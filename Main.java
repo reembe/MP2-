@@ -16,13 +16,7 @@ public class Main
   {
   public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException
   {
-      // User s= new User("Bob", 12, "Spanish");
-      // s.pickLanguage();
-
-     
-
      MyFrame myFrame = new MyFrame();
-
   }
   }
 

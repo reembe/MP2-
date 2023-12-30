@@ -8,6 +8,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +35,9 @@ public class MyFrame extends JFrame implements ActionListener{
 
     MyFrame() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
+        ImageIcon image = new ImageIcon("cute.jpg");
+        ImageIcon i = new ImageIcon("doge.jpg");
+  
 
         menuBar =  new JMenuBar();
         fileMenu = new JMenu("Menu");
@@ -49,9 +54,18 @@ public class MyFrame extends JFrame implements ActionListener{
         // exitItem.setMnemonic(KeyEvent.VK_E);
 
         button = new JButton();
-        button.setBounds(2,1,10,10);
-        button.addActionListener(e -> System.out.print("Hi!"));
+        button.setBounds(100, 100, 250, 100);
+        button.addActionListener(this);
+        // -> System.out.print("Hi!"));
         button.setText("Spanish");
+        button.setFocusable(false);
+        button.setIcon(i);
+        button.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        button.setIconTextGap(-15);
+        button.setBackground(Color.DARK_GRAY);
+
+       
+        this.setLayout(new FlowLayout());
 
 
 
@@ -73,14 +87,13 @@ public class MyFrame extends JFrame implements ActionListener{
         l.setForeground(Color.blue);
         l.setFont(new Font("MV Boli", Font.BOLD, 20));
  
-        ImageIcon image = new ImageIcon("cute.jpg");
-        ImageIcon i = new ImageIcon("cute.jpg");
+       
         l.setIcon(i);
         this.setIconImage(image.getImage());
         this.setTitle("LOTE Helper");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // this.setResizable(false);
-        this.setSize(300,300);
+        this.setSize(500,500);
         this.getContentPane().setBackground(Color.pink);
         this.setVisible(true);
         this.add(l);
@@ -108,7 +121,11 @@ public class MyFrame extends JFrame implements ActionListener{
         }
         if (e.getSource() == button)
         {
-            System.out.print("Button!");
+        this.setVisible(false);
+         User s= new User("Bob", 12, "Spanish");
+         s.pickLanguage();
+         this.setVisible(true);
+         button.setEnabled(false);
         }
 
     }
