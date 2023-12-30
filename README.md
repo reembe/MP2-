@@ -1,4 +1,4 @@
-**current wips**
+**current progression**
 
 -swing buttons being created in the MyFrame class
 
