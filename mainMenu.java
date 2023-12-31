@@ -1,7 +1,3 @@
-//this class just contains everything ive learned about gui, will be deleted when we are done
-
-
-
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,7 +20,7 @@ import java.io.IOException;
 
 import javax.sound.sampled.*;
 
-public class MyFrame extends JFrame implements ActionListener{
+public class mainMenu extends JFrame implements ActionListener{
 
     JMenuBar menuBar;
 	JMenu fileMenu;
@@ -39,7 +35,7 @@ public class MyFrame extends JFrame implements ActionListener{
 	//ImageIcon saveIcon;
 	//ImageIcon exitIcon;
 
-    MyFrame() throws UnsupportedAudioFileException, IOException, LineUnavailableException
+    mainMenu() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
         ImageIcon image = new ImageIcon("cute.jpg");
         ImageIcon i = new ImageIcon("doge.jpg");
