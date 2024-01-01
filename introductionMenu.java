@@ -60,12 +60,10 @@ public class introductionMenu extends JFrame implements ActionListener{
 		textField.setBackground(Color.white);
 		textField.setCaretColor(Color.white);
 		textField.setText("Name: ");
-        // textField.getText()
 
         option1 = new JButton("Spanish");
 		option1.addActionListener(this);
         option1.setBounds(200,600,100,100);
-
 
         option2 = new JButton("French");
 		option2.addActionListener(this);
@@ -91,17 +89,12 @@ public class introductionMenu extends JFrame implements ActionListener{
         this.add(option2);
 		this.add(textField);
         this.add(continueButton);
-        continueButton.setEnabled(false);
-       
-
-       
-				
-
+        continueButton.setEnabled(false);		
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==button) {
+            if(e.getSource()==button) {
 			System.out.println("Welcome "+ textField.getText());
 			button.setEnabled(false);
 			textField.setEditable(false);
@@ -135,8 +128,6 @@ public class introductionMenu extends JFrame implements ActionListener{
        {
         continueButton.setEnabled(true);
        }
-
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
 
     }
