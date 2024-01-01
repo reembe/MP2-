@@ -4,17 +4,22 @@ public class User {
     private String name;
     private int age;
     private String language;
+    private static User instance = null;
 
-    public User(String n, int a, String l)
+    public User(String n, String l)
     {
-        n = JOptionPane.showInputDialog("What is your name? ");
-        a = Integer.parseInt(JOptionPane.showInputDialog("How old are you? "));
-        l = JOptionPane.showInputDialog("What language would you like to learn ");
-        JOptionPane.showMessageDialog(null, "Hi, " + n + "! Thank you for picking LOTE Helper!");
+
         this.name = n;
-        this.age = a;
+        // this.age = a;
         this.language = l;
     }
+
+    
+     public static User getInstance() {
+        return instance;
+    }
+
+   
 
     public void pickLanguage()
     {

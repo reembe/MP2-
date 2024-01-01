@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -144,14 +145,16 @@ public class MyFrame extends JFrame implements ActionListener{
         //  s.pickLanguage();
         //  this.setVisible(true);
         //  button.setEnabled(false);
-        try {
-            mainMenu mainMenu = new mainMenu();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+       
+            try {
+				introductionMenu introductionMenu = new introductionMenu();
+			} catch (FontFormatException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+   
     
         }
-
     }
 }
+    

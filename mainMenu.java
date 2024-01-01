@@ -20,22 +20,12 @@ import javax.sound.sampled.*;
 public class mainMenu extends JFrame implements ActionListener{
 
 // all this must be deleted later b/c we cant have nonprivate instance variables
-    private JMenuBar menuBar;
-	JMenu fileMenu;
-	JMenu editMenu;
-	JMenu helpMenu;
-	JMenuItem loadItem;
-	JMenuItem saveItem;
-	JMenuItem exitItem;
-    JLabel title;
-    JButton button;
-    JButton buttonA;
-	ImageIcon loadIcon;
-	ImageIcon saveIcon;
-	ImageIcon exitIcon;
 
-    mainMenu() throws UnsupportedAudioFileException, IOException, LineUnavailableException
+
+    mainMenu(User s) throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
+
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
         this.getContentPane().setBackground(new Color(50,94,168));

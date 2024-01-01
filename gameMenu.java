@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 public class gameMenu extends JFrame implements ActionListener{
 
-    public gameMenu() 
+    public gameMenu(User s) 
     {
 
     }
