@@ -16,7 +16,8 @@ public class Main
   {
   public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException
   {
-    mainMenu mainMenu = new mainMenu();
+    MyFrame MyFrame = new MyFrame();
+    // mainMenu mainMenu = new mainMenu();
   }
   }
 

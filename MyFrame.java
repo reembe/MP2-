@@ -109,7 +109,7 @@ public class MyFrame extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         // this.setSize(1920,1080);
-        this.setSize(650,650);
+        this.setSize(1920,1080);
         this.getContentPane().setBackground(Color.pink);
         this.setVisible(true);
         // this.add(l);
@@ -136,13 +136,21 @@ public class MyFrame extends JFrame implements ActionListener{
         {
             System.exit(0);
         }
-        if (e.getSource() == button)
+        if (e.getSource() == buttonA)
         {
-        this.setVisible(false);
-         User s= new User("Bob", 12, "Spanish");
-         s.pickLanguage();
-         this.setVisible(true);
-         button.setEnabled(false);
+         this.setVisible(false);
+        // this.setVisible(false);
+        //  User s= new User("Bob", 12, "Spanish");
+        //  s.pickLanguage();
+        //  this.setVisible(true);
+        //  button.setEnabled(false);
+        try {
+            mainMenu mainMenu = new mainMenu();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    
         }
 
     }
