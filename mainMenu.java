@@ -19,12 +19,68 @@ import javax.sound.sampled.*;
 
 public class mainMenu extends JFrame implements ActionListener{
 
-// all this must be deleted later b/c we cant have nonprivate instance variables
+// ask about nonprivate instance variables
 
+JMenu helpMenu;
+JMenu saveMenu;
+JMenu restartMenu;
+JMenu viewAccount;
+JMenuBar menuBar;
+JButton mcQuiz;
+JButton Listening;
+JButton fillInTheBlank;
+JButton matchingGame;
+JButton trueorFalse;
 
     mainMenu(User s) throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
+        menuBar = new JMenuBar();
+        saveMenu = new JMenu("Save");
+        restartMenu = new JMenu("Restart");
+        viewAccount = new JMenu("View Account");
+        helpMenu = new JMenu("Help");
 
+        mcQuiz = new JButton();
+        mcQuiz.setBounds(0,100,100,100);
+		mcQuiz.setFont(new Font("MV Boli",Font.BOLD,35)); 
+        
+        //import joystix.ttf later for all options
+
+		mcQuiz.setFocusable(false);
+		mcQuiz.addActionListener(this);
+		mcQuiz.setText("Multiple Choice Quiz!");
+
+        Listening = new JButton();
+        Listening.setBounds(0,100,100,100);
+		Listening.setFont(new Font("MV Boli",Font.BOLD,35));
+		Listening.setFocusable(false);
+		Listening.addActionListener(this);
+		Listening.setText("Listening Practice!");
+
+
+        fillInTheBlank = new JButton();
+        fillInTheBlank.setBounds(0,100,100,100);
+		fillInTheBlank.setFont(new Font("MV Boli",Font.BOLD,35));
+		fillInTheBlank.setFocusable(false);
+		fillInTheBlank.addActionListener(this);
+		fillInTheBlank.setText("Completing Sentences!");
+
+        matchingGame = new JButton();
+        matchingGame.setBounds(0,100,100,100);
+		matchingGame.setFont(new Font("MV Boli",Font.BOLD,35));
+		matchingGame.setFocusable(false);
+		matchingGame.addActionListener(this);
+		matchingGame.setText("Match Terms!");
+
+        trueorFalse = new JButton();
+        trueorFalse.setBounds(0,100,100,100);
+		trueorFalse.setFont(new Font("MV Boli",Font.BOLD,35));
+		trueorFalse.setFocusable(false);
+		trueorFalse.addActionListener(this);
+		trueorFalse.setText("True or False?");
+
+        saveMenu.setMnemonic(KeyEvent.VK_S);
+        
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
