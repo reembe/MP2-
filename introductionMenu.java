@@ -15,13 +15,13 @@ import javax.swing.JTextField;
 
 public class introductionMenu extends JFrame implements ActionListener{
 
-    JButton button;
-    JButton option1;
-    JButton option2;
-    JButton continueButton;
-	JTextField textField;
-    int buttonsPressed;
-    String currentOption;
+    private JButton button;
+    private JButton option1;
+    private JButton option2;
+    private JButton continueButton;
+	private JTextField textField;
+    private int buttonsPressed;
+    private String currentOption;
 
     public introductionMenu() throws FontFormatException, IOException 
     {
