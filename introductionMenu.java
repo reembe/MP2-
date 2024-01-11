@@ -113,22 +113,22 @@ public class introductionMenu extends JFrame implements ActionListener{
          if(e.getSource() == continueButton)
          {
             User user = new User(textField.getText(), currentOption);
-            try {
-                mainMenu mainMenu = new mainMenu(user);
+          
+                // mainMenu mainMenu = new mainMenu(user);
+                Games Games = new Games("mcQuiz",user);
                 this.setVisible(false);
-            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
+           
+
+
             }
-
-
-         }
-        if (buttonsPressed == 2)
+            if (buttonsPressed == 2)
        {
         continueButton.setEnabled(true);
        }
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-
-    }
+        }
+    {
+      
+      
     
 }
+    }

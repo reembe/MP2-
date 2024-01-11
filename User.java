@@ -1,10 +1,13 @@
 import javax.swing.JOptionPane;
 
 public class User {
+    private static final User User = null;
     private String name;
     private int age;
     private String language;
     private static User instance = null;
+    private static User[] userList;
+    private static int userNum;
 
     public User(String n, String l)
     {
@@ -12,14 +15,20 @@ public class User {
         this.name = n;
         // this.age = a;
         this.language = l;
+        // userList[userNum] = this.instance;
+        // userNum++;
+
     }
 
-    
+    public User getName()
+    {
+        return this.User.getName(); 
+    }
+   
      public static User getInstance() {
         return instance;
     }
 
-   
 
     public void pickLanguage()
     {
@@ -36,6 +45,21 @@ public class User {
     public String getLanguage()
     {
         return this.language;
+    }
+
+    public void getUserList()
+    {
+        for (User u : userList)
+        {
+            System.out.println(u.getName() +"!");
+        }
+
+    }
+
+    public String toString()
+    {
+        return "User: " + name + ", " + language + "Learner";
+
     }
 
 

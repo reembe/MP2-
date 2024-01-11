@@ -1,21 +1,74 @@
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.util.Timer;
+
+import javax.sound.sampled.*;
 
 public class Games implements ActionListener {
 
     private String gameName;
     private String language;
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-    }
+    private JFrame frame = new JFrame();
+	private JTextField textfield = new JTextField();
+	private JTextArea textarea = new JTextArea();
+	private JButton buttonA = new JButton();
+	private JButton buttonB = new JButton();
+	private JButton buttonC = new JButton();
+	private JButton buttonD = new JButton();
+	private JLabel answer_labelA = new JLabel();
+	private JLabel answer_labelB = new JLabel();
+	private JLabel answer_labelC = new JLabel();
+	private JLabel answer_labelD = new JLabel();
+	private JLabel time_label = new JLabel();
+	private JLabel seconds_left = new JLabel();
+	private JTextField number_right = new JTextField();
+	private JTextField percentage = new JTextField();
+    private static int index;
+    private String[] questions;
+    private static char answer;
+    private static int correct_guesses;
+    private String[][] answersa;
+    private char[] answers = 		{
+        'A',
+        'B',
+        'C',
+        'C'
+    };
 
     public Games(String n, User s) {
         gameName = n;
         language = s.getLanguage();
     }
+  
+    // Timer timer = new Timer(1000, new ActionListener() {
+		
+	// 	@Override
+	// 	public void actionPerformed(ActionEvent e) {
+	// 		seconds--;
+	// 		seconds_left.setText(String.valueOf(seconds));
+	// 		if(seconds<=0) {
+	// 			displayAnswer();
+	// 		}
+	// 		}
+	// 	});
 
     public String getGameName() {
         return gameName;
@@ -35,6 +88,12 @@ public class Games implements ActionListener {
                 "9. Quand a eu lieu la première apparition du français dans les documents?",
                 "10. Quel est le nom de notre professeur?"
             };
+            questions = qf;
+
+             String[] af = {};
+            String[] bf = {};
+            String[] cf = {};
+            String[] df = {};
         }
         if (language.equals("spanish")) {
             String[] qs = {"1. What is 3 in Spanish?",
@@ -48,12 +107,235 @@ public class Games implements ActionListener {
                 "9. What does \"como se dice\" mean in English?",
                 "10. What does \"tu madre\" mean in English?"};
 
-            String[] as = {};
-            String[] bs = {};
-            String[] cs = {};
-            String[] ds = {};
+            String[][] as = {{"Tres","Perro","Usted","1","Era","Hola","Corro","Comprar","What is that", "Your dad"}, 
+            {"Cuatro", "Gato", "El", "4", "Fui","Buenos noches", "Corri", "Dinero", "How do they say", "My" }};
+       
+
+            questions = qs;
+             answersa = as;
+            //  answersb = bs;
+            // answersc = cs;
+            //  answersd = ds;
+
+            char guess;
+	char answer;
+	int index;
+	int correct_guesses =0;
+	int total_questions = questions.length;
+	int result;
+	int seconds=10;
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(650,650);
+		frame.getContentPane().setBackground(new Color(50,50,50));
+		frame.setLayout(null);
+		frame.setResizable(false);
+		
+		textfield.setBounds(0,0,650,50);
+		textfield.setBackground(new Color(25,25,25));
+		textfield.setForeground(new Color(25,255,0));
+		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
+		textfield.setBorder(BorderFactory.createBevelBorder(1));
+		textfield.setHorizontalAlignment(JTextField.CENTER);
+		textfield.setEditable(false);
+		
+		textarea.setBounds(0,50,650,50);
+		textarea.setLineWrap(true);
+		textarea.setWrapStyleWord(true);
+		textarea.setBackground(new Color(25,25,25));
+		textarea.setForeground(new Color(25,255,0));
+		textarea.setFont(new Font("MV Boli",Font.BOLD,25));
+		textarea.setBorder(BorderFactory.createBevelBorder(1));
+		textarea.setEditable(false);
+		
+		buttonA.setBounds(0,100,100,100);
+		buttonA.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonA.setFocusable(false);
+		buttonA.addActionListener(this);
+		buttonA.setText("A");
+		
+		buttonB.setBounds(0,200,100,100);
+		buttonB.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonB.setFocusable(false);
+		buttonB.addActionListener(this);
+		buttonB.setText("B");
+		
+		buttonC.setBounds(0,300,100,100);
+		buttonC.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonC.setFocusable(false);
+		buttonC.addActionListener(this);
+		buttonC.setText("C");
+		
+		buttonD.setBounds(0,400,100,100);
+		buttonD.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonD.setFocusable(false);
+		buttonD.addActionListener(this);
+		buttonD.setText("D");
+		
+		answer_labelA.setBounds(125,100,500,100);
+		answer_labelA.setBackground(new Color(50,50,50));
+		answer_labelA.setForeground(new Color(25,255,0));
+		answer_labelA.setFont(new Font("MV Boli",Font.PLAIN,35));
+		
+		answer_labelB.setBounds(125,200,500,100);
+		answer_labelB.setBackground(new Color(50,50,50));
+		answer_labelB.setForeground(new Color(25,255,0));
+		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,35));
+		
+		answer_labelC.setBounds(125,300,500,100);
+		answer_labelC.setBackground(new Color(50,50,50));
+		answer_labelC.setForeground(new Color(25,255,0));
+		answer_labelC.setFont(new Font("MV Boli",Font.PLAIN,35));
+		
+		answer_labelD.setBounds(125,400,500,100);
+		answer_labelD.setBackground(new Color(50,50,50));
+		answer_labelD.setForeground(new Color(25,255,0));
+		answer_labelD.setFont(new Font("MV Boli",Font.PLAIN,35));
+		
+		seconds_left.setBounds(535,510,100,100);
+		seconds_left.setBackground(new Color(25,25,25));
+		seconds_left.setForeground(new Color(255,0,0));
+		seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
+		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
+		seconds_left.setOpaque(true);
+		seconds_left.setHorizontalAlignment(JTextField.CENTER);
+		seconds_left.setText(String.valueOf(seconds));
+		
+		time_label.setBounds(535,475,100,25);
+		time_label.setBackground(new Color(50,50,50));
+		time_label.setForeground(new Color(255,0,0));
+		time_label.setFont(new Font("MV Boli",Font.PLAIN,16));
+		time_label.setHorizontalAlignment(JTextField.CENTER);
+		time_label.setText("timer >:D");
+		
+		number_right.setBounds(225,225,200,100);
+		number_right.setBackground(new Color(25,25,25));
+		number_right.setForeground(new Color(25,255,0));
+		number_right.setFont(new Font("Ink Free",Font.BOLD,50));
+		number_right.setBorder(BorderFactory.createBevelBorder(1));
+		number_right.setHorizontalAlignment(JTextField.CENTER);
+		number_right.setEditable(false);
+		
+		percentage.setBounds(225,325,200,100);
+		percentage.setBackground(new Color(25,25,25));
+		percentage.setForeground(new Color(25,255,0));
+		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
+		percentage.setBorder(BorderFactory.createBevelBorder(1));
+		percentage.setHorizontalAlignment(JTextField.CENTER);
+		percentage.setEditable(false);
+		
+		frame.add(time_label);
+		frame.add(seconds_left);
+		frame.add(answer_labelA);
+		frame.add(answer_labelB);
+		frame.add(answer_labelC);
+		frame.add(answer_labelD);
+		frame.add(buttonA);
+		frame.add(buttonB);
+		frame.add(buttonC);
+		frame.add(buttonD);
+		frame.add(textarea);
+		frame.add(textfield);
+		frame.setVisible(true);
+		
+		nextQuestion();
+	}
         }
+    
+
+    public void nextQuestion() {
+		
+		if(index>=10) {
+			results();
+		}
+		else {
+			textfield.setText("Question "+(index+1));
+			textarea.setText(questions[index]);
+			answer_labelA.setText(answersa[index][0]);
+			answer_labelB.setText(answersa[index][1]);
+			answer_labelC.setText(answersa[index][2]);
+			answer_labelD.setText(answersa[index][3]);
+			// timer.start();
+		}
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+			buttonA.setEnabled(false);
+			buttonB.setEnabled(false);
+			buttonC.setEnabled(false);
+			buttonD.setEnabled(false);
+			
+			if(e.getSource()==buttonA) {
+				answer= 'A';
+				if(answer == answers[index]) {
+					correct_guesses++;
+				}
+			}
+			if(e.getSource()==buttonB) {
+				answer= 'B';
+				if(answer == answers[index]) {
+					correct_guesses++;
+				}
+			}
+			if(e.getSource()==buttonC) {
+				answer= 'C';
+				if(answer == answers[index]) {
+					correct_guesses++;
+				}
+			}
+			if(e.getSource()==buttonD) {
+				answer= 'D';
+				if(answer == answers[index]) {
+					correct_guesses++;
+				}
+			}
+			displayAnswer();
+	}
+	public void displayAnswer() {
+		
+		// timer.stop();
+		
+		buttonA.setEnabled(false);
+		buttonB.setEnabled(false);
+		buttonC.setEnabled(false);
+		buttonD.setEnabled(false);
+		
+		if(answers[index] != 'A')
+			answer_labelA.setForeground(new Color(255,0,0));
+		if(answers[index] != 'B')
+			answer_labelB.setForeground(new Color(255,0,0));
+		if(answers[index] != 'C')
+			answer_labelC.setForeground(new Color(255,0,0));
+		if(answers[index] != 'D')
+			answer_labelD.setForeground(new Color(255,0,0));
     }
+		
+
+	public void results(){
+		
+		buttonA.setEnabled(false);
+		buttonB.setEnabled(false);
+		buttonC.setEnabled(false);
+		buttonD.setEnabled(false);
+		
+		int result = (int)((correct_guesses/(double)10)*100);
+		
+		textfield.setText("RESULTS!");
+		textarea.setText("");
+		answer_labelA.setText("");
+		answer_labelB.setText("");
+		answer_labelC.setText("");
+		answer_labelD.setText("");
+		
+		number_right.setText("("+correct_guesses+"/"+10+")");
+		percentage.setText(result+"%");
+		
+		frame.add(number_right);
+		frame.add(percentage);
+		
+	}
+
 
     public void Listening() {
         if (language.equals("french")) {
@@ -87,6 +369,8 @@ public class Games implements ActionListener {
 
         }
         if (language.equals("spanish")) {
+            String[] seta = {"Cocinar" };
+            String[] setb = {"Cook" };
 
         }
     }
@@ -104,6 +388,7 @@ public class Games implements ActionListener {
                 "9. Le français est une langue romane.",
                 "10. Les articles définis en français sont 'le', 'la', 'les'."
             };
+            String[] answers = {"true"};
         }
         if (language.equals("spanish")) {
 
