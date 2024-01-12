@@ -18,8 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
 import javax.sound.sampled.*;
+import javax.swing.Timer;
+
 
 public class Games extends JFrame implements ActionListener {
 
@@ -45,35 +46,51 @@ public class Games extends JFrame implements ActionListener {
     private static char answer;
     private static int correct_guesses;
     private String[][] answersa;
+	private int seconds;
     private char[] answers = 		{
         'A',
         'B',
         'C',
         'C'
     };
+	private static int char_list = -1;
+	private char[] AnswerChars;
+	private Timer timer = new Timer(10000, new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			seconds--;
+			seconds_left.setText(String.valueOf(seconds));
+			if(seconds<=0) {
+				displayAnswer();
+			}
+			}
+		});
+	
 
     public Games(String n, User s) {
         gameName = n;
         language = s.getLanguage();
     }
-  
-    // Timer timer = new Timer(1000, new ActionListener() {
+
+
+
+
 		
-	// 	@Override
-	// 	public void actionPerformed(ActionEvent e) {
-	// 		seconds--;
-	// 		seconds_left.setText(String.valueOf(seconds));
-	// 		if(seconds<=0) {
-	// 			displayAnswer();
-	// 		}
-	// 		}
-	// 	});
+		
+	
+  
+ 
 
     public String getGameName() {
         return gameName;
     }
 
     public void mcQuiz() {
+
+		
+
+		
         if (language.equals("french")) {
             String[] qf = {
                 "1. Combien de pronoms existent-ils?",
@@ -108,11 +125,12 @@ public class Games extends JFrame implements ActionListener {
                 "10. What does \"tu madre\" mean in English?"};
  
             String[][] as = {{"Tres","Perro","Usted","1","Era","Hola","Corro","Comprar","What is that", "Your dad"}, 
-            {"Cuatro", "Gato", "El", "4", "Fui","Buenos noches", "Corri", "Dinero", "How do they say", "My mom" }, 
-			{"Cinco", "Pajaro","Ella", "21", "Seaba", "Buenos Dias", "Correo", "Dolar", "How do I do that", "Your mom"}, 
-			{"Venti", "Oso", "Nosotros","5", "Eraba", "Buen", "Correr","Buyar", "Who am I", "Your brother"}};
+            {"Cuatro", "Gato", "El", "4", "Fui","Buenos noches", "Corri", "Dinero", "How do you say", "My mom" }, 
+			{"Cinco", "Pajaro","Ella", "21", "Seaba", "Buenos Dias", "Correo", "Dolar", "How do I do that", "Your brother"}, 
+			{"Venti", "Oso", "Nosotros","5", "Eraba", "Buen", "Correr","Buyar", "Who am I", "Your mom"}};
 
-			char[] a
+			char[] AnswerChar = {'A', 'B', 'C', 'C', 'A', 'C', 'A', 'A', 'B', 'D'};
+			AnswerChars = AnswerChar;
        
 
             questions = qs;
@@ -128,6 +146,7 @@ public class Games extends JFrame implements ActionListener {
 		int total_questions = questions.length;
 		int result;
 		int seconds=10;
+		
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(650,650);
@@ -210,7 +229,7 @@ public class Games extends JFrame implements ActionListener {
 		time_label.setForeground(new Color(255,0,0));
 		time_label.setFont(new Font("MV Boli",Font.PLAIN,16));
 		time_label.setHorizontalAlignment(JTextField.CENTER);
-		time_label.setText("timer >:D");
+		time_label.setText("timer");
 		
 		number_right.setBounds(225,225,200,100);
 		number_right.setBackground(new Color(25,25,25));
@@ -240,6 +259,11 @@ public class Games extends JFrame implements ActionListener {
 		frame.add(buttonD);
 		frame.add(textarea);
 		frame.add(textfield);
+
+		// buttonA.setEnabled(true);
+		// buttonB.setEnabled(true);
+		// buttonC.setEnabled(true);
+		// buttonD.setEnabled(true);
 		
 		frame.setVisible(true);
 		
@@ -249,6 +273,8 @@ public class Games extends JFrame implements ActionListener {
     
 
     public void nextQuestion() {
+		char_list++;
+		
 		
 		if(index>=10) {
 			results();
@@ -262,7 +288,7 @@ public class Games extends JFrame implements ActionListener {
 			answer_labelC.setText(answersa[2][index]);
 			answer_labelD.setText(answersa[3][index]);
 			System.out.println(index);
-			// timer.start();
+			timer.start();
 			index++;
 		}
 	}
@@ -276,48 +302,96 @@ public class Games extends JFrame implements ActionListener {
 			
 			if(e.getSource()==buttonA) {
 				answer= 'A';
-				if(answer == answers[index]) {
+				if(answer == AnswerChars[char_list]) {
 					correct_guesses++;
 				}
 			}
 			if(e.getSource()==buttonB) {
-				answer= 'B';
-				if(answer == answers[index]) {
+				answer = 'B';
+				if(answer == AnswerChars[char_list]) {
 					correct_guesses++;
 				}
 			}
 			if(e.getSource()==buttonC) {
-				answer= 'C';
-				if(answer == answers[index]) {
+				answer = 'C';
+				if(answer == AnswerChars[char_list]) {
 					correct_guesses++;
 				}
 			}
 			if(e.getSource()==buttonD) {
-				answer= 'D';
-				if(answer == answers[index]) {
+				answer = 'D';
+				if(answer == AnswerChars[char_list]) {
 					correct_guesses++;
 				}
 			}
+			
+			
 			displayAnswer();
 	}
 	public void displayAnswer() {
 		
-		// timer.stop();
+		timer.stop();
 		
 		buttonA.setEnabled(false);
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
 		
-		if(answers[index] != 'A')
+		if(AnswerChars[char_list] != 'A')
 			answer_labelA.setForeground(new Color(255,0,0));
-		if(answers[index] != 'B')
+		if(AnswerChars[char_list] != 'B')
 			answer_labelB.setForeground(new Color(255,0,0));
-		if(answers[index] != 'C')
+		if(AnswerChars[char_list] != 'C')
 			answer_labelC.setForeground(new Color(255,0,0));
-		if(answers[index] != 'D')
+		if(AnswerChars[char_list] != 'D')
 			answer_labelD.setForeground(new Color(255,0,0));
-    }
+		
+		
+		
+		
+			
+		seconds = 10;
+
+		
+		
+		
+
+		
+
+		Timer pause = new Timer(2000, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				answer_labelA.setForeground(new Color(25,255,0));
+				answer_labelB.setForeground(new Color(25,255,0));
+				answer_labelC.setForeground(new Color(25,255,0));
+				answer_labelD.setForeground(new Color(25,255,0));
+				
+				answer = ' ';
+				seconds=10;
+				seconds_left.setText(String.valueOf(seconds));
+				buttonA.setEnabled(true);
+				buttonB.setEnabled(true);
+				buttonC.setEnabled(true);
+				buttonD.setEnabled(true);
+
+				nextQuestion();
+				
+				
+			}
+		});
+		
+		pause.setRepeats(false);
+		pause.start();
+		
+	}
+	
+	
+		
+	
+    
+		
 		
 
 	public void results(){
