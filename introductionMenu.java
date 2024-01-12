@@ -116,6 +116,7 @@ public class introductionMenu extends JFrame implements ActionListener{
           
                 // mainMenu mainMenu = new mainMenu(user);
                 Games Games = new Games("mcQuiz",user);
+                Games.mcQuiz();
                 this.setVisible(false);
            
 

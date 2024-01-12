@@ -19,10 +19,9 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
-
 import javax.sound.sampled.*;
 
-public class Games implements ActionListener {
+public class Games extends JFrame implements ActionListener {
 
     private String gameName;
     private String language;
@@ -86,11 +85,12 @@ public class Games implements ActionListener {
                 "7. Combien de temps verbaux existent-ils?",
                 "8. Qui est le meilleur acteur français (en vie)?",
                 "9. Quand a eu lieu la première apparition du français dans les documents?",
-                "10. Quel est le nom de notre professeur?"
-            };
-            questions = qf;
+                "10. Quel est le nom de notre professeur?"};
 
-             String[] af = {};
+			// String[][] af = ()	
+            // questions = qf;
+
+            String[] af = {};
             String[] bf = {};
             String[] cf = {};
             String[] df = {};
@@ -106,9 +106,13 @@ public class Games implements ActionListener {
                 "8. Which of the following means \"to buy\" in Spanish?",
                 "9. What does \"como se dice\" mean in English?",
                 "10. What does \"tu madre\" mean in English?"};
-
+ 
             String[][] as = {{"Tres","Perro","Usted","1","Era","Hola","Corro","Comprar","What is that", "Your dad"}, 
-            {"Cuatro", "Gato", "El", "4", "Fui","Buenos noches", "Corri", "Dinero", "How do they say", "My" }};
+            {"Cuatro", "Gato", "El", "4", "Fui","Buenos noches", "Corri", "Dinero", "How do they say", "My mom" }, 
+			{"Cinco", "Pajaro","Ella", "21", "Seaba", "Buenos Dias", "Correo", "Dolar", "How do I do that", "Your mom"}, 
+			{"Venti", "Oso", "Nosotros","5", "Eraba", "Buen", "Correr","Buyar", "Who am I", "Your brother"}};
+
+			char[] a
        
 
             questions = qs;
@@ -117,13 +121,13 @@ public class Games implements ActionListener {
             // answersc = cs;
             //  answersd = ds;
 
-            char guess;
-	char answer;
-	int index;
-	int correct_guesses =0;
-	int total_questions = questions.length;
-	int result;
-	int seconds=10;
+        char guess;
+		char answer;
+		int index;
+		int correct_guesses =0;
+		int total_questions = questions.length;
+		int result;
+		int seconds=10;
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(650,650);
@@ -236,6 +240,7 @@ public class Games implements ActionListener {
 		frame.add(buttonD);
 		frame.add(textarea);
 		frame.add(textfield);
+		
 		frame.setVisible(true);
 		
 		nextQuestion();
@@ -249,13 +254,16 @@ public class Games implements ActionListener {
 			results();
 		}
 		else {
+			
 			textfield.setText("Question "+(index+1));
 			textarea.setText(questions[index]);
-			answer_labelA.setText(answersa[index][0]);
-			answer_labelB.setText(answersa[index][1]);
-			answer_labelC.setText(answersa[index][2]);
-			answer_labelD.setText(answersa[index][3]);
+			answer_labelA.setText(answersa[0][index]);
+			answer_labelB.setText(answersa[1][index]);
+			answer_labelC.setText(answersa[2][index]);
+			answer_labelD.setText(answersa[3][index]);
+			System.out.println(index);
 			// timer.start();
+			index++;
 		}
 	}
 	@Override
