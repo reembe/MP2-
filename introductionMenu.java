@@ -31,46 +31,46 @@ public class introductionMenu extends JFrame implements ActionListener{
 
         JLabel title = new JLabel();
         title.setText("Welcome to LOTE Helper!");
-        title.setBounds(0,57,10000000,100);
-        title.setForeground(Color.black);
+        title.setBounds(300,57,10000000,100);
+        title.setForeground(Color.pink);
         title.setFont(sizedFont);
 
         JLabel intro = new JLabel();
-        intro.setText("Here you will find fun educational games");
-        intro.setBounds(0,107,10000000,100);
-        intro.setForeground(Color.black);
+        intro.setText("Enter your name then select a language");
+        intro.setBounds(100,107,100000,100);
+        intro.setForeground(Color.pink);
         intro.setFont(sizedFont);
 
-        JLabel intro1 = new JLabel();
-        intro1.setText("to help you prepare for your LOTE exams!");
-        intro1.setBounds(0,157,10000000,100);
-        intro1.setForeground(Color.black);
-        intro1.setFont(sizedFont);
+        // JLabel intro1 = new JLabel();
+        // intro1.setText("to help you prepare for your LOTE exams!");
+        // intro1.setBounds(300,157,10000000,100);
+        // intro1.setForeground(Color.pink);
+        // intro1.setFont(sizedFont);
 
         button = new JButton("Submit");
 		button.addActionListener(this);
-        button.setBounds(200,500,100,100);
+        button.setBounds(500,600,100,100);
 		
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(250,40));
 		textField.setFont(sizedFont);
-        textField.setBounds(500,500,1000,100);
-		textField.setForeground(Color.BLACK);
+        textField.setBounds(200,500,1000,100);
+		textField.setForeground(Color.pink);
 		textField.setBackground(Color.white);
 		textField.setCaretColor(Color.white);
 		textField.setText("Name: ");
 
         option1 = new JButton("Spanish");
 		option1.addActionListener(this);
-        option1.setBounds(200,600,100,100);
+        option1.setBounds(600,600,100,100);
 
         option2 = new JButton("French");
 		option2.addActionListener(this);
-        option2.setBounds(300,600,100,100);
+        option2.setBounds(700,600,100,100);
 
         continueButton = new JButton("Continue?");
 		continueButton.addActionListener(this);
-        continueButton.setBounds(200,700,100,100);
+        continueButton.setBounds(800,600,100,100);
     
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
@@ -82,7 +82,6 @@ public class introductionMenu extends JFrame implements ActionListener{
         this.setVisible(true);
         this.add(title);
         this.add(intro);
-        this.add(intro1);
         this.add(button);
         this.add(option1);
         this.add(option2);
@@ -102,29 +101,21 @@ public class introductionMenu extends JFrame implements ActionListener{
 		}
          if(e.getSource()==option1) {
              buttonsPressed++; 
-            currentOption = "spanish";
+            currentOption = "Spanish";
 
          }
          if(e.getSource()==option2) {
             buttonsPressed++;
-            currentOption = "french";
+            currentOption = "French";
 
          }
          if(e.getSource() == continueButton)
          {
             User user = new User(textField.getText(), currentOption);
           
-                try {
-                    mainMenu mainMenu = new mainMenu(user);
-                    this.setVisible(false);
-
-                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
-                // Games Games = new Games("mcQuiz",user);
-                // Games.mcQuiz();
-                // this.setVisible(false);
+                // mainMenu mainMenu = new mainMenu(user);
+                Games Games = new Games("mcQuiz",user);
+                this.setVisible(false);
            
 
 
@@ -136,6 +127,11 @@ public class introductionMenu extends JFrame implements ActionListener{
         }
     {
       
+      
+    
+}
+    }
+
       
     
 }
