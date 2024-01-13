@@ -19,7 +19,7 @@ import javax.sound.sampled.*;
 
 public class mainMenu extends JFrame implements ActionListener{
 
-// ask about nonprivate instance variables
+
 
 private JMenu helpMenu;
 private JMenu saveMenu;
@@ -34,25 +34,28 @@ private JButton trueorFalse;
 private JLabel title;
 private JLabel submessage;
 private JLabel welcomemessage;
+private static User user;
 
 
-    mainMenu(User s) throws UnsupportedAudioFileException, IOException, LineUnavailableException
+    public mainMenu(User s) throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
+        user = s;
+
         // menuBar = new JMenuBar();
         // saveMenu = new JMenu("Save");
         // restartMenu = new JMenu("Restart");
         // viewAccount = new JMenu("View Account");
         // helpMenu = new JMenu("Help");
 
-        // mcQuiz = new JButton();
-        // mcQuiz.setBounds(0,100,100,100);
-		// mcQuiz.setFont(new Font("MV Boli",Font.BOLD,35)); 
+        mcQuiz = new JButton();
+        mcQuiz.setBounds(0,100,150,150);
+		mcQuiz.setFont(new Font("MV Boli",Font.BOLD,35)); 
         
         // //import joystix.ttf later for all options
 
-		// mcQuiz.setFocusable(false);
-		// mcQuiz.addActionListener(this);
-		// mcQuiz.setText("Multiple Choice Quiz!");
+		mcQuiz.setFocusable(false);
+		mcQuiz.addActionListener(this);
+		mcQuiz.setText("Multiple Choice Quiz!");
 
         // Listening = new JButton();
         // Listening.setBounds(0,100,100,100);
@@ -82,11 +85,11 @@ private JLabel welcomemessage;
 		// trueorFalse.addActionListener(this);
 		// trueorFalse.setText("True or False?");
 
-        // title = new JLabel();
-        // title.setText("Please select which mode you want to practice with:");
-        // title.setBounds(0,57,10000000,100);
-        // title.setForeground(Color.black);
-        // // title.setFont(sizedFont);
+        title = new JLabel();
+        title.setText("Please select which mode you want to practice with:");
+        title.setBounds(0,57,10000000,100);
+        title.setForeground(Color.black);
+        // title.setFont(sizedFont);
 
         // submessage.setText("Your current language");
         // submessage.setBounds(0,57,10000000,100);
@@ -113,6 +116,8 @@ private JLabel welcomemessage;
 
 
         this.setVisible(true);
+
+        this.add(mcQuiz);
         
   
     }
@@ -120,10 +125,13 @@ private JLabel welcomemessage;
     @Override
     public void actionPerformed(ActionEvent e) {
        
-        // if (e.getSource() == loadItem)
-        // {
-        //    System.out.print("Saved!");
-        // }
+        if (e.getSource() == mcQuiz)
+        {
+            Games Games = new Games("mcQuiz", user);
+                Games.mcQuiz();
+                this.setVisible(false);
+          
+        }
         // if (e.getSource() == exitItem)
         // {
         //     System.exit(0);

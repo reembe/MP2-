@@ -46,7 +46,7 @@ public class Games extends JFrame implements ActionListener {
     private static char answer;
     private static int correct_guesses;
     private String[][] answersa;
-	private int seconds;
+	private static int seconds = 10;
     private char[] answers = 		{
         'A',
         'B',
@@ -55,7 +55,7 @@ public class Games extends JFrame implements ActionListener {
     };
 	private static int char_list = -1;
 	private char[] AnswerChars;
-	private Timer timer = new Timer(10000, new ActionListener() {
+	private  Timer timer = new Timer(1000, new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -73,14 +73,6 @@ public class Games extends JFrame implements ActionListener {
         language = s.getLanguage();
     }
 
-
-
-
-		
-		
-	
-  
- 
 
     public String getGameName() {
         return gameName;
@@ -139,22 +131,16 @@ public class Games extends JFrame implements ActionListener {
             // answersc = cs;
             //  answersd = ds;
 
-        char guess;
-		char answer;
-		int index;
-		int correct_guesses =0;
-		int total_questions = questions.length;
-		int result;
-		int seconds=10;
+      
 		
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(650,650);
-		frame.getContentPane().setBackground(new Color(50,50,50));
+		frame.setSize(1920,1080);
+		frame.getContentPane().setBackground(Color.pink);
 		frame.setLayout(null);
 		frame.setResizable(false);
 		
-		textfield.setBounds(0,0,650,50);
+		textfield.setBounds(0,0,1920,50);
 		textfield.setBackground(new Color(25,25,25));
 		textfield.setForeground(new Color(25,255,0));
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
@@ -162,7 +148,7 @@ public class Games extends JFrame implements ActionListener {
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
 		
-		textarea.setBounds(0,50,650,50);
+		textarea.setBounds(0,50,1920,50);
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
 		textarea.setBackground(new Color(25,25,25));
@@ -289,6 +275,7 @@ public class Games extends JFrame implements ActionListener {
 			answer_labelD.setText(answersa[3][index]);
 			System.out.println(index);
 			timer.start();
+			System.out.print(seconds);
 			index++;
 		}
 	}

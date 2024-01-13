@@ -114,10 +114,17 @@ public class introductionMenu extends JFrame implements ActionListener{
          {
             User user = new User(textField.getText(), currentOption);
           
-                // mainMenu mainMenu = new mainMenu(user);
-                Games Games = new Games("mcQuiz",user);
-                Games.mcQuiz();
-                this.setVisible(false);
+                try {
+                    mainMenu mainMenu = new mainMenu(user);
+                    this.setVisible(false);
+
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                // Games Games = new Games("mcQuiz",user);
+                // Games.mcQuiz();
+                // this.setVisible(false);
            
 
 
