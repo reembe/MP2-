@@ -86,23 +86,25 @@ public class Games extends JFrame implements ActionListener {
         if (language.equals("french")) {
             String[] qf = {
                 "1. Combien de pronoms existent-ils?",
-                "2. Quelles sont les conjugaisons de base?",
+                "2. Quelles sont les conjugaisons de base pour \"Manger\"?",
                 "3. Quel temps est utilisé pour un événement passé continu?",
                 "4. Combien de pays francophones existent-ils?",
                 "5. Comment conjuguer un verbe en -IR avec le pronom 'nous'?",
-                "6. Comment dit-on bonjour en français?",
+                "6. Comment dit-on \"Hello\" en français?",
                 "7. Combien de temps verbaux existent-ils?",
                 "8. Qui est le meilleur acteur français (en vie)?",
                 "9. Quand a eu lieu la première apparition du français dans les documents?",
-                "10. Quel est le nom de notre professeur?"};
+                "10. Quel est le nom de notre prof?"};
 
 			// String[][] af = ()	
             // questions = qf;
 
-            String[] af = {};
-            String[] bf = {};
-            String[] cf = {};
-            String[] df = {};
+			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Newman"}, 
+			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Eddy"},
+			{"6", "e, es, e, ont, ez, ons", "Futur simple", "8", "ent", "Bonsoir", "15", "Anne Hathaway", "L'année 1052", "Holmer"},
+			{"5", "s, s, es, ons, ez, ent", "Present", "23", "ont", "Bonne nuit", "10", "Angelina Jolie", "L'année 2022", "Eric Adamns"}};
+
+
         }
         if (language.equals("spanish")) {
             String[] qs = {"1. What is 3 in Spanish?",
@@ -447,17 +449,17 @@ public class Games extends JFrame implements ActionListener {
     public void trueorFalse() {
         if (language.equals("french")) {
             String[] mg = {"1. Les verbes réfléchis sont couramment utilisés en français.",
-                "2. La France a 30 provinces.",
+                "2. Il ya 28 pays Francophone.",
                 "3. Le futur proche utilise l'auxiliaire 'être'.",
                 "4. 'Rouge' est un adjectif de couleur.",
                 "5. Le passé composé est utilisé pour décrire une action en cours.",
-                "6. 'Bonjour' est utilisé pour dire au revoir.",
+                "6. 'Bonjour' est utilisé pour dire 'au revoir'.",
                 "7. La négation 'ne...pas' est utilisée avant le verbe.",
-                "8. La chanteuse Édith Piaf était surnommée 'La Môme Piaf'.",
+                "8. Nous habitons à Brooklyn Tech.",
                 "9. Le français est une langue romane.",
                 "10. Les articles définis en français sont 'le', 'la', 'les'."
             };
-            String[] answers = {"true"};
+            String[] answers = {"true, true, false, true, false, false, true, false, true, true"};
         }
         if (language.equals("spanish")) {
 
