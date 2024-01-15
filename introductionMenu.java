@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,9 +24,14 @@ public class introductionMenu extends JFrame implements ActionListener{
 	private JTextField textField;
     private int buttonsPressed;
     private String currentOption;
+    private ImageIcon logo;
+    private JLabel logogo;
 
     public introductionMenu() throws FontFormatException, IOException 
     {
+
+        logo = new ImageIcon("LOTE_Helper_logo.jpg");
+
         File font_file = new File("joystix.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, font_file);
         Font sizedFont = font.deriveFont(40f);
@@ -50,6 +57,8 @@ public class introductionMenu extends JFrame implements ActionListener{
         button = new JButton("Submit");
 		button.addActionListener(this);
         button.setBounds(500,600,100,100);
+        button.setBackground(Color.white);
+		button.setForeground(Color.pink);
 		
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(250,40));
@@ -63,14 +72,24 @@ public class introductionMenu extends JFrame implements ActionListener{
         option1 = new JButton("Spanish");
 		option1.addActionListener(this);
         option1.setBounds(600,600,100,100);
+        option1.setBackground(Color.white);
+		option1.setForeground(Color.pink);
 
         option2 = new JButton("French");
 		option2.addActionListener(this);
         option2.setBounds(700,600,100,100);
+        option2.setBackground(Color.white);
+		option2.setForeground(Color.pink);
 
         continueButton = new JButton("Continue?");
 		continueButton.addActionListener(this);
         continueButton.setBounds(800,600,100,100);
+        continueButton.setBackground(Color.white);
+		continueButton.setForeground(Color.pink);
+
+        logogo = new JLabel();
+        logogo.setBounds(950, 500, 100,100);;
+        logogo.setIcon(logo);
     
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
@@ -82,11 +101,13 @@ public class introductionMenu extends JFrame implements ActionListener{
         this.setVisible(true);
         this.add(title);
         this.add(intro);
+        this.add(logogo);
         this.add(button);
         this.add(option1);
         this.add(option2);
 		this.add(textField);
         this.add(continueButton);
+        this.add(logogo);
         continueButton.setEnabled(false);		
     }
 
@@ -101,12 +122,16 @@ public class introductionMenu extends JFrame implements ActionListener{
 		}
          if(e.getSource()==option1) {
              buttonsPressed++; 
-            currentOption = "Spanish";
+            currentOption = "spanish";
+            option2.setEnabled(false);
+            option1.setEnabled(false);	
 
          }
          if(e.getSource()==option2) {
             buttonsPressed++;
-            currentOption = "French";
+            currentOption = "french";
+            option1.setEnabled(false);
+            option2.setEnabled(false);	
 
          }
          if(e.getSource() == continueButton)
@@ -114,7 +139,10 @@ public class introductionMenu extends JFrame implements ActionListener{
             User user = new User(textField.getText(), currentOption);
           
                 // mainMenu mainMenu = new mainMenu(user);
-                Games Games = new Games("mcQuiz",user);
+                // Games Games = new Games("mcQuiz",user);
+                // Games.mcQuiz();
+                 TrueOrFalseF TrueOrFalseF = new TrueOrFalseF();
+                 TrueOrFalseF.Quiz();
                 this.setVisible(false);
            
 
@@ -125,14 +153,4 @@ public class introductionMenu extends JFrame implements ActionListener{
         continueButton.setEnabled(true);
        }
         }
-    {
-      
-      
-    
 }
-    }
-
-      
-    
-}
-    }

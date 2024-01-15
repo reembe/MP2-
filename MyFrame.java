@@ -80,7 +80,7 @@ public class MyFrame extends JFrame implements ActionListener{
         button.setBackground(Color.DARK_GRAY);
 
        
-        // this.setLayout(new FlowLayout());
+        this.setLayout(new FlowLayout());
         this.setLayout(null);
 
 
@@ -113,7 +113,7 @@ public class MyFrame extends JFrame implements ActionListener{
         this.setSize(1920,1080);
         this.getContentPane().setBackground(Color.pink);
         this.setVisible(true);
-        // this.add(l);
+        this.add(l);
         // this.add(button);
         this.add(buttonA);
     

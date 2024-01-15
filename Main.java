@@ -1,6 +1,6 @@
 /** 
-  * @author Reem
-  * @version 3.0 
+  * @author Reem Belafkih, Fatoumata Barry
+  * @version 7.5
 **/
 
 import java.awt.FontFormatException;
@@ -13,8 +13,8 @@ public class Main
   {
   public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, FontFormatException
   {
-    introductionMenu introductionMenu = new introductionMenu();
+  introductionMenu introductionMenu = new introductionMenu();
   }
-  }
+}
 
   

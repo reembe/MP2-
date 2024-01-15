@@ -1,24 +1,13 @@
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
-import javax.sound.sampled.*;
 import javax.swing.Timer;
 
 
@@ -47,12 +36,7 @@ public class Games extends JFrame implements ActionListener {
     private static int correct_guesses;
     private String[][] answersa;
 	private static int seconds = 10;
-    private char[] answers = 		{
-        'A',
-        'B',
-        'C',
-        'C'
-    };
+
 	private static int char_list = -1;
 	private char[] AnswerChars;
 	private  Timer timer = new Timer(1000, new ActionListener() {
@@ -86,23 +70,30 @@ public class Games extends JFrame implements ActionListener {
         if (language.equals("french")) {
             String[] qf = {
                 "1. Combien de pronoms existent-ils?",
-                "2. Quelles sont les conjugaisons de base pour \"Manger\"?",
+                "2. Quelles sont les conjugaisons de base?",
                 "3. Quel temps est utilisé pour un événement passé continu?",
                 "4. Combien de pays francophones existent-ils?",
                 "5. Comment conjuguer un verbe en -IR avec le pronom 'nous'?",
-                "6. Comment dit-on \"Hello\" en français?",
+                "6. Comment dit-on bonjour en français?",
                 "7. Combien de temps verbaux existent-ils?",
                 "8. Qui est le meilleur acteur français (en vie)?",
                 "9. Quand a eu lieu la première apparition du français dans les documents?",
-                "10. Quel est le nom de notre prof?"};
+                "10. Quel est le nom de notre professeur?"};
 
-			// String[][] af = ()	
-            // questions = qf;
 
+				
 			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Newman"}, 
 			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Eddy"},
 			{"6", "e, es, e, ont, ez, ons", "Futur simple", "8", "ent", "Bonsoir", "15", "Anne Hathaway", "L'année 1052", "Holmer"},
 			{"5", "s, s, es, ons, ez, ent", "Present", "23", "ont", "Bonne nuit", "10", "Angelina Jolie", "L'année 2022", "Eric Adamns"}};
+			
+			
+			char[] AnswerChar = {}; // look at mine to see how i formatted it!
+
+			questions = qf;
+			answersa = af;
+
+			GameStarter();
 
 
         }
@@ -125,17 +116,20 @@ public class Games extends JFrame implements ActionListener {
 
 			char[] AnswerChar = {'A', 'B', 'C', 'C', 'A', 'C', 'A', 'A', 'B', 'D'};
 			AnswerChars = AnswerChar;
-       
 
-            questions = qs;
+			questions = qs;
              answersa = as;
-            //  answersb = bs;
-            // answersc = cs;
-            //  answersd = ds;
 
-      
+			 GameStarter();
+		}
+
+            
+          
+
+	}
+
 		
-
+        public void GameStarter(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1920,1080);
 		frame.getContentPane().setBackground(Color.pink);
@@ -247,24 +241,18 @@ public class Games extends JFrame implements ActionListener {
 		frame.add(buttonD);
 		frame.add(textarea);
 		frame.add(textfield);
-
-		// buttonA.setEnabled(true);
-		// buttonB.setEnabled(true);
-		// buttonC.setEnabled(true);
-		// buttonD.setEnabled(true);
 		
 		frame.setVisible(true);
 		
 		nextQuestion();
 	}
-        }
     
 
     public void nextQuestion() {
 		char_list++;
 		
 		
-		if(index>=10) {
+		if(index>=questions.length) {
 			results();
 		}
 		else {
@@ -341,10 +329,7 @@ public class Games extends JFrame implements ActionListener {
 			
 		seconds = 10;
 
-		
-		
-		
-
+	
 		
 
 		Timer pause = new Timer(2000, new ActionListener() {
@@ -376,11 +361,7 @@ public class Games extends JFrame implements ActionListener {
 		
 	}
 	
-	
-		
-	
-    
-		
+			
 		
 
 	public void results(){
@@ -417,52 +398,25 @@ public class Games extends JFrame implements ActionListener {
         }
     }
 
-    public void fillInTheBlank() {
-        if (language.equals("french")) {
-            String[] fitb = {"1. Nous _avoir_ un examen lundi.",
-                "2. Elle __ française.",
-                "3. Le chien est __ la table.",
-                "4. Tu __ venir à la fête?",
-                "5. Les élèves __ beaucoup de devoirs.",
-                "6. __-tu au cinéma hier soir?",
-                "7. La fille __ un livre intéressant.",
-                "8. Nous __ dîner ensemble ce soir.",
-                "9. Le professeur __ la leçon.",
-                "10. Vous __ du café?"};
-        }
-        if (language.equals("spanish")) {
+    // public void fillInTheBlank() {
+    //     if (language.equals("french")) {
+    //         String[] fitb = {"1. Nous _avoir_ un examen lundi.",
+    //             "2. Elle __ française.",
+    //             "3. Le chien est __ la table.",
+    //             "4. Tu __ venir à la fête?",
+    //             "5. Les élèves __ beaucoup de devoirs.",
+    //             "6. __-tu au cinéma hier soir?",
+    //             "7. La fille __ un livre intéressant.",
+    //             "8. Nous __ dîner ensemble ce soir.",
+    //             "9. Le professeur __ la leçon.",
+    //             "10. Vous __ du café?"};
+    //     }
+    //     if (language.equals("spanish")) {
 
-        }
+    //     }
+    // }
+
+    
+
     }
 
-    public void matchingGame() {
-        if (language.equals("french")) {
-
-        }
-        if (language.equals("spanish")) {
-            String[] seta = {"Cocinar" };
-            String[] setb = {"Cook" };
-
-        }
-    }
-
-    public void trueorFalse() {
-        if (language.equals("french")) {
-            String[] mg = {"1. Les verbes réfléchis sont couramment utilisés en français.",
-                "2. Il ya 28 pays Francophone.",
-                "3. Le futur proche utilise l'auxiliaire 'être'.",
-                "4. 'Rouge' est un adjectif de couleur.",
-                "5. Le passé composé est utilisé pour décrire une action en cours.",
-                "6. 'Bonjour' est utilisé pour dire 'au revoir'.",
-                "7. La négation 'ne...pas' est utilisée avant le verbe.",
-                "8. Nous habitons à Brooklyn Tech.",
-                "9. Le français est une langue romane.",
-                "10. Les articles définis en français sont 'le', 'la', 'les'."
-            };
-            String[] answers = {"true, true, false, true, false, false, true, false, true, true"};
-        }
-        if (language.equals("spanish")) {
-
-        }
-    }
-}

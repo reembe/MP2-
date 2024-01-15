@@ -41,11 +41,11 @@ private static User user;
     {
         user = s;
 
-        // menuBar = new JMenuBar();
-        // saveMenu = new JMenu("Save");
-        // restartMenu = new JMenu("Restart");
-        // viewAccount = new JMenu("View Account");
-        // helpMenu = new JMenu("Help");
+        menuBar = new JMenuBar();
+        saveMenu = new JMenu("Save");
+        restartMenu = new JMenu("Restart");
+        viewAccount = new JMenu("View Account");
+        helpMenu = new JMenu("Help");
 
         mcQuiz = new JButton();
         mcQuiz.setBounds(0,100,150,150);
@@ -55,14 +55,14 @@ private static User user;
 
 		mcQuiz.setFocusable(false);
 		mcQuiz.addActionListener(this);
-		mcQuiz.setText("Multiple Choice Quiz!");
+		mcQuiz.setText("Level 1: MC Quiz");
 
-        // Listening = new JButton();
-        // Listening.setBounds(0,100,100,100);
-		// Listening.setFont(new Font("MV Boli",Font.BOLD,35));
-		// Listening.setFocusable(false);
-		// Listening.addActionListener(this);
-		// Listening.setText("Listening Practice!");
+        Listening = new JButton();
+        Listening.setBounds(0,100,100,100);
+		Listening.setFont(new Font("MV Boli",Font.BOLD,35));
+		Listening.setFocusable(false);
+		Listening.addActionListener(this);
+		Listening.setText("Listening Practice!");
 
         // fillInTheBlank = new JButton();
         // fillInTheBlank.setBounds(0,100,100,100);
@@ -78,12 +78,12 @@ private static User user;
 		// matchingGame.addActionListener(this);
 		// matchingGame.setText("Match Terms!");
 
-        // trueorFalse = new JButton();
-        // trueorFalse.setBounds(0,100,100,100);
-		// trueorFalse.setFont(new Font("MV Boli",Font.BOLD,35));
-		// trueorFalse.setFocusable(false);
-		// trueorFalse.addActionListener(this);
-		// trueorFalse.setText("True or False?");
+        trueorFalse = new JButton();
+        trueorFalse.setBounds(0,100,100,100);
+		trueorFalse.setFont(new Font("MV Boli",Font.BOLD,35));
+		trueorFalse.setFocusable(false);
+		trueorFalse.addActionListener(this);
+		trueorFalse.setText("True or False?");
 
         title = new JLabel();
         title.setText("Please select which mode you want to practice with:");
@@ -132,71 +132,21 @@ private static User user;
                 this.setVisible(false);
           
         }
-        // if (e.getSource() == exitItem)
-        // {
-        //     System.exit(0);
-        // }
-        // if (e.getSource() == button)
-        // {
-        // this.setVisible(false);
-        //  User s= new User("Bob", 12, "Spanish");
-        //  s.pickLanguage();
-        //  this.setVisible(true);
-        //  button.setEnabled(false);
-        // }
+        if (e.getSource() == trueorFalse)
+        {
+            if (user.getLanguage().equals("french"))
+            {
+            TrueOrFalseF TrueOrFalseF = new TrueOrFalseF();
+            TrueOrFalseF.Quiz();
+            } 
+            else{
+            TrueOrFalseS TrueOrFalseS = new TrueOrFalseS();
+            TrueOrFalseS.Quiz();
+            }
+        }
+    
 
     }
 }
 
 
-// import java.net.URL;
-// import java.util.ResourceBundle;
-// import javafx.event.ActionEvent;
-// import javafx.fxml.FXML;
-// import javafx.fxml.Initializable;
-// import javafx.scene.control.ChoiceBox;
-// import javafx.scene.control.Label;
-
-// public class Controller implements Initializable{
-
-// 	@FXML
-// 	private Label myLabel;
-	
-// 	@FXML
-// 	private ChoiceBox<String> myChoiceBox;
-	
-// 	private String[] food = {"pizza","sushi","ramen"};
-
-// 	@Override
-// 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-// 		myChoiceBox.getItems().addAll(food);
-// 		myChoiceBox.setOnAction(this::getFood);
-		
-// 	}
-	
-// 	public void getFood(ActionEvent event) {
-		
-// 		String myFood = myChoiceBox.getValue();
-// 		myLabel.setText(myFood);
-// 	}
-
-// }
-
-// <?xml version="1.0" encoding="UTF-8"?>
-
-// <?import javafx.scene.control.ChoiceBox?>
-// <?import javafx.scene.control.Label?>
-// <?import javafx.scene.layout.AnchorPane?>
-// <?import javafx.scene.text.Font?>
-
-// <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
-//    <children>
-//       <ChoiceBox fx:id="myChoiceBox" layoutX="225.0" layoutY="188.0" prefWidth="150.0" />
-//       <Label fx:id="myLabel" alignment="CENTER" layoutX="-2.0" layoutY="94.0" prefHeight="17.0" prefWidth="600.0" text="Select what you want to eat">
-//          <font>
-//             <Font size="28.0" />
-//          </font>
-//       </Label>
-//    </children>
-// </AnchorPane>
