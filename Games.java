@@ -263,9 +263,7 @@ public class Games extends JFrame implements ActionListener {
 			answer_labelB.setText(answersa[1][index]);
 			answer_labelC.setText(answersa[2][index]);
 			answer_labelD.setText(answersa[3][index]);
-			System.out.println(index);
 			timer.start();
-			System.out.print(seconds);
 			index++;
 		}
 	}
