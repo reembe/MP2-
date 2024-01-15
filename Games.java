@@ -1,5 +1,7 @@
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,6 +10,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.Timer;
 
 
@@ -15,6 +19,7 @@ public class Games extends JFrame implements ActionListener {
 
     private String gameName;
     private String language;
+	private JButton returnHome; 
     private JFrame frame = new JFrame();
 	private JTextField textfield = new JTextField();
 	private JTextArea textarea = new JTextArea();
@@ -30,6 +35,7 @@ public class Games extends JFrame implements ActionListener {
 	private JLabel seconds_left = new JLabel();
 	private JTextField number_right = new JTextField();
 	private JTextField percentage = new JTextField();
+	private User user;
     private static int index;
     private String[] questions;
     private static char answer;
@@ -55,6 +61,7 @@ public class Games extends JFrame implements ActionListener {
     public Games(String n, User s) {
         gameName = n;
         language = s.getLanguage();
+		user = s;
     }
 
 
@@ -158,6 +165,13 @@ public class Games extends JFrame implements ActionListener {
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("A");
+
+		returnHome = new JButton();
+		returnHome.setBounds(500,500,100,100);
+		returnHome.setFont(new Font("MV Boli",Font.BOLD,35));
+		returnHome.setFocusable(false);
+		returnHome.addActionListener(this);
+		returnHome.setText("Return to Menu?");
 		
 		buttonB.setBounds(0,200,100,100);
 		buttonB.setFont(new Font("MV Boli",Font.BOLD,35));
@@ -241,6 +255,9 @@ public class Games extends JFrame implements ActionListener {
 		frame.add(buttonD);
 		frame.add(textarea);
 		frame.add(textfield);
+		frame.add(returnHome);
+
+		returnHome.setVisible(false);
 		
 		frame.setVisible(true);
 		
@@ -297,6 +314,15 @@ public class Games extends JFrame implements ActionListener {
 				answer = 'D';
 				if(answer == AnswerChars[char_list]) {
 					correct_guesses++;
+				}
+			}
+			if(e.getSource() == returnHome)
+			{
+				try {
+					mainMenu mainMenu = new mainMenu(user);
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 			
@@ -383,9 +409,14 @@ public class Games extends JFrame implements ActionListener {
 		
 		frame.add(number_right);
 		frame.add(percentage);
+
+		returnHome.setVisible(true);
+
+		
 		
 	}
 
+	
 
     public void Listening() {
         if (language.equals("french")) {

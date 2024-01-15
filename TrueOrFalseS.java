@@ -19,8 +19,6 @@ public class TrueOrFalseS implements ActionListener{
 	private JTextArea textarea = new JTextArea();
 	private JButton buttonA = new JButton();
 	private JButton buttonB = new JButton();
-	private JLabel answer_labelA = new JLabel();
-	private JLabel answer_labelB = new JLabel();
 	private JLabel time_label = new JLabel();
 	private JLabel seconds_left = new JLabel();
 	private JTextField number_right = new JTextField();
@@ -48,8 +46,17 @@ public class TrueOrFalseS implements ActionListener{
 	
     public void Quiz() {
 
-		String[] mg = {"1. "};
-		String[] answers = {};
+		String[] mg = {"1. El español es el único idioma que se habla en España.",
+		"2. El Día de los Muertos se celebra el 31 de octubre de cada año.",
+		"3. La bandera mexicana es roja, blanca y verde.",
+		"4. Los idiomas no estan en mayuscula en español.",
+		"5. Madrid está situada en el centro físico del país.",
+		"6. Stem-change verbs in the Preterite are called Boot verbs.",
+		"7. Bag is \"una bolsa\" in Spanish.",
+		"8. Possessive Adjectives express the quality of the ownership.",
+		"9. -er and -ir verbs share the same endings in the Preterite.",
+		"10. There are 2 pronouns in Spanish."};
+	    String[] answers = {"false", "false", "true", "true", "true", "false", "true", "true", "true", "false"};
 		AnswerString = answers;
         questions = mg;
 		
@@ -97,16 +104,6 @@ public class TrueOrFalseS implements ActionListener{
 		buttonB.setText("False");
 		
 		
-		answer_labelA.setBounds(125,100,500,100);
-		answer_labelA.setBackground(new Color(50,50,50));
-		answer_labelA.setForeground(new Color(25,255,0));
-		answer_labelA.setFont(new Font("MV Boli",Font.PLAIN,35));
-		
-		answer_labelB.setBounds(125,200,500,100);
-		answer_labelB.setBackground(new Color(50,50,50));
-		answer_labelB.setForeground(new Color(25,255,0));
-		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,35));
-		
 	
 		seconds_left.setBounds(535,510,100,100);
 		seconds_left.setBackground(new Color(25,25,25));
@@ -142,8 +139,6 @@ public class TrueOrFalseS implements ActionListener{
 		
 		frame.add(time_label);
 		frame.add(seconds_left);
-		frame.add(answer_labelA);
-		frame.add(answer_labelB);
 		frame.add(buttonA);
 		frame.add(buttonB);
 		frame.add(textarea);
@@ -177,19 +172,17 @@ public class TrueOrFalseS implements ActionListener{
     @OverRide
 	public void actionPerformed(ActionEvent e) {
 		
-			buttonA.setEnabled(false);
-			buttonB.setEnabled(false);
 			
 			
 			if(e.getSource()==buttonA) {
-				answer= "True";
-				if(answer == AnswerString[char_list]) {
+				answer= "true";
+				if(AnswerString[char_list].equals(answer)) {
 					correct_guesses++;
 				}
 			}
 			if(e.getSource()==buttonB) {
-				answer = "False";
-				if(answer == AnswerString[char_list]) {
+				answer = "false";
+				if(AnswerString[char_list].equals(answer)) {
 					correct_guesses++;
 				}
 			}
@@ -202,15 +195,13 @@ public class TrueOrFalseS implements ActionListener{
 		
 		timer.stop();
 		
-		buttonA.setEnabled(false);
-		buttonB.setEnabled(false);
+		if(AnswerString[char_list].equals("false"))
+			buttonA.setForeground(new Color(255,0,0));
+		if(AnswerString[char_list].equals("true"))
+		    buttonB.setForeground(new Color(255,0,0));
+
 		
-		
-		if(AnswerString[char_list] != "True")
-			answer_labelA.setForeground(new Color(255,0,0));
-		if(AnswerString[char_list] != "False")
-			answer_labelB.setForeground(new Color(255,0,0));
-	
+
 		
 
 		Timer pause = new Timer(2000, new ActionListener() {
@@ -218,8 +209,8 @@ public class TrueOrFalseS implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				answer_labelA.setForeground(new Color(25,255,0));
-				answer_labelB.setForeground(new Color(25,255,0));
+				buttonA.setForeground(Color.black);
+				buttonB.setForeground(Color.black);
 				
 				
 				answer = " ";
@@ -257,8 +248,6 @@ public class TrueOrFalseS implements ActionListener{
 		
 		textfield.setText("RESULTS!");
 		textarea.setText("");
-		answer_labelA.setText("");
-		answer_labelB.setText("");
 		
 		
 		number_right.setText("("+correct_guesses+"/"+10+")");
@@ -268,6 +257,7 @@ public class TrueOrFalseS implements ActionListener{
 		frame.add(percentage);
 		
 	}
+
 
 
 

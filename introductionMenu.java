@@ -138,11 +138,13 @@ public class introductionMenu extends JFrame implements ActionListener{
          {
             User user = new User(textField.getText(), currentOption);
           
-                // mainMenu mainMenu = new mainMenu(user);
-                // Games Games = new Games("mcQuiz",user);
-                // Games.mcQuiz();
-                 TrueOrFalseF TrueOrFalseF = new TrueOrFalseF();
-                 TrueOrFalseF.Quiz();
+                try {
+                    mainMenu mainMenu = new mainMenu(user);
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+           
                 this.setVisible(false);
            
 
@@ -153,4 +155,9 @@ public class introductionMenu extends JFrame implements ActionListener{
         continueButton.setEnabled(true);
        }
         }
+
+    public void introductionMenu() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'introductionMenu'");
+    }
 }

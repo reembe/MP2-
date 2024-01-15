@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -48,7 +49,7 @@ private static User user;
         helpMenu = new JMenu("Help");
 
         mcQuiz = new JButton();
-        mcQuiz.setBounds(0,100,150,150);
+        mcQuiz.setBounds(0,100,400,150);
 		mcQuiz.setFont(new Font("MV Boli",Font.BOLD,35)); 
         
         // //import joystix.ttf later for all options
@@ -58,7 +59,7 @@ private static User user;
 		mcQuiz.setText("Level 1: MC Quiz");
 
         Listening = new JButton();
-        Listening.setBounds(0,100,100,100);
+        Listening.setBounds(0,100,100,300);
 		Listening.setFont(new Font("MV Boli",Font.BOLD,35));
 		Listening.setFocusable(false);
 		Listening.addActionListener(this);
@@ -79,7 +80,7 @@ private static User user;
 		// matchingGame.setText("Match Terms!");
 
         trueorFalse = new JButton();
-        trueorFalse.setBounds(0,100,100,100);
+        trueorFalse.setBounds(0,500,300,100);
 		trueorFalse.setFont(new Font("MV Boli",Font.BOLD,35));
 		trueorFalse.setFocusable(false);
 		trueorFalse.addActionListener(this);
@@ -118,6 +119,13 @@ private static User user;
         this.setVisible(true);
 
         this.add(mcQuiz);
+        this.add(trueorFalse);
+
+        menuBar.add(saveMenu);
+        menuBar.add(restartMenu);
+        menuBar.add(viewAccount);
+        menuBar.add(helpMenu);
+        this.setJMenuBar(menuBar);
         
   
     }
@@ -138,10 +146,22 @@ private static User user;
             {
             TrueOrFalseF TrueOrFalseF = new TrueOrFalseF();
             TrueOrFalseF.Quiz();
+            this.setVisible(false);
             } 
             else{
             TrueOrFalseS TrueOrFalseS = new TrueOrFalseS();
             TrueOrFalseS.Quiz();
+            this.setVisible(false);
+            }
+        }
+        if (e.getSource() == restartMenu)
+        {
+            try {
+                introductionMenu introductionMenu = new introductionMenu();
+                this.setVisible(false);
+            } catch (FontFormatException | IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
             }
         }
     
