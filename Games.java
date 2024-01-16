@@ -89,13 +89,14 @@ public class Games extends JFrame implements ActionListener {
 
 
 				
-			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Newman"}, 
-			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Eddy"},
-			{"6", "e, es, e, ont, ez, ons", "Futur simple", "8", "ent", "Bonsoir", "15", "Anne Hathaway", "L'année 1052", "Holmer"},
-			{"5", "s, s, es, ons, ez, ent", "Present", "23", "ont", "Bonne nuit", "10", "Angelina Jolie", "L'année 2022", "Eric Adamns"}};
+			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Mr. Newman"}, 
+			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Ms.Eddy"},
+			{"6", "e, es, e, ont, ez, ons", "Futur simple", "8", "ent", "Bonsoir", "15", "Anne Hathaway", "L'année 1052", "Mr. Holmer"},
+			{"5", "s, s, es, ons, ez, ent", "Present", "23", "ont", "Bonne nuit", "10", "Angelina Jolie", "L'année 2022", "Eric Adams"}};
 			
-			
-			char[] AnswerChar = {}; // look at mine to see how i formatted it!
+			char[] AnswerChar = {'C', 'A', 'B', 'B', 'A', 'B', 'A', 'A', 'A', 'C'};
+
+			AnswerChars = AnswerChar;
 
 			questions = qf;
 			answersa = af;
@@ -320,6 +321,7 @@ public class Games extends JFrame implements ActionListener {
 			{
 				try {
 					mainMenu mainMenu = new mainMenu(user);
+					frame.setVisible(false);
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

@@ -114,7 +114,6 @@ public class introductionMenu extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
             if(e.getSource()==button) {
-			System.out.println("Welcome "+ textField.getText());
 			button.setEnabled(false);
 			textField.setEditable(false);
             buttonsPressed++;

@@ -74,16 +74,14 @@ public class Listening extends JFrame implements ActionListener {
 		
         if (language.equals("french")) {
             String[] qf = {
-                "1. Combien de pronoms existent-ils?",
-                "2. Quelles sont les conjugaisons de base?",
-                "3. Quel temps est utilisé pour un événement passé continu?",
-                "4. Combien de pays francophones existent-ils?",
-                "5. Comment conjuguer un verbe en -IR avec le pronom 'nous'?",
-                "6. Comment dit-on bonjour en français?",
-                "7. Combien de temps verbaux existent-ils?",
-                "8. Qui est le meilleur acteur français (en vie)?",
-                "9. Quand a eu lieu la première apparition du français dans les documents?",
-                "10. Quel est le nom de notre professeur?"};
+                "1. Il est déprimé.",
+                "2. Il dort trop.",
+                "3. Il ne fait pas assez d'exercice.",
+                "4. Il a des douleurs à la gorge.",
+                "5. Il a beaucoup d'allergies.",
+                "6. Il a mal au dos.",
+                "7. Il ne mange pas sainement.",
+                "8. Il a de la fièvre."};
 
 
 				

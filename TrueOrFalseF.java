@@ -14,6 +14,7 @@ import javax.swing.Timer;
 
 
 public class TrueOrFalseF implements ActionListener{
+	
     private JFrame frame = new JFrame();
 	private JTextField textfield = new JTextField();
 	private JTextArea textarea = new JTextArea();
