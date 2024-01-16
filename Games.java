@@ -145,17 +145,18 @@ public class Games extends JFrame implements ActionListener {
 		frame.setResizable(false);
 		
 		textfield.setBounds(0,0,1920,50);
-		textfield.setBackground(new Color(25,25,25));
+		//vv for the bottom background in t/f
+		textfield.setBackground(new Color(255,234,238));
 		textfield.setForeground(new Color(25,255,0));
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
-		
+		//vv top rectangle thing with the questions displayed
 		textarea.setBounds(0,50,1920,50);
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
-		textarea.setBackground(new Color(25,25,25));
+		textarea.setBackground(new Color(219,210,224));
 		textarea.setForeground(new Color(25,255,0));
 		textarea.setFont(new Font("MV Boli",Font.BOLD,25));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
@@ -199,7 +200,7 @@ public class Games extends JFrame implements ActionListener {
 		
 		answer_labelB.setBounds(125,200,500,100);
 		answer_labelB.setBackground(new Color(50,50,50));
-		answer_labelB.setForeground(new Color(25,255,0));
+		answer_labelB.setForeground(new Color(255,225,198));
 		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,35));
 		
 		answer_labelC.setBounds(125,300,500,100);
