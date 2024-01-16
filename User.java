@@ -1,5 +1,10 @@
 import javax.swing.JOptionPane;
 
+
+/** Precondition: age > 0  
+ * Postcondition: creates user objects
+*/
+
 public class User {
     private static final User User = null;
     private String name;
@@ -17,7 +22,6 @@ public class User {
         this.language = l;
         // userList[userNum] = this.instance;
         // userNum++;
-
     }
 
     public User getName()
