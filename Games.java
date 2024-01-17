@@ -140,106 +140,107 @@ public class Games extends JFrame implements ActionListener {
         public void GameStarter(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1920,1080);
-		frame.getContentPane().setBackground(Color.pink);
+		//bottom big half bg
+		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(null);
 		frame.setResizable(false);
 		
-		textfield.setBounds(0,0,1920,50);
+		textfield.setBounds(-250,0,1920,50);
 		//vv for the bottom background in t/f
-		textfield.setBackground(new Color(255,234,238));
-		textfield.setForeground(new Color(25,255,0));
+		textfield.setBackground(new Color(255,255,255));
+		textfield.setForeground(new Color(249,207,242));
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
-		//vv top rectangle thing with the questions displayed
+		//vv second top rectangle thing with the questions displayed
 		textarea.setBounds(0,50,1920,50);
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
-		textarea.setBackground(new Color(219,210,224));
-		textarea.setForeground(new Color(25,255,0));
-		textarea.setFont(new Font("MV Boli",Font.BOLD,25));
+		textarea.setBackground(new Color(255,255,255));
+		textarea.setForeground(new Color(249,207,242));
+		textarea.setFont(new Font("MV Boli",Font.BOLD,40));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
 		
 		buttonA.setBounds(0,100,100,100);
-		buttonA.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonA.setFont(new Font("MV Boli",Font.BOLD,50));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("A");
 
 		returnHome = new JButton();
-		returnHome.setBounds(500,500,100,100);
-		returnHome.setFont(new Font("MV Boli",Font.BOLD,35));
+		returnHome.setBounds(0,500,100,100);
+		returnHome.setFont(new Font("MV Boli",Font.BOLD,50));
 		returnHome.setFocusable(false);
 		returnHome.addActionListener(this);
 		returnHome.setText("Return to Menu?");
 		
 		buttonB.setBounds(0,200,100,100);
-		buttonB.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonB.setFont(new Font("MV Boli",Font.BOLD,50));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("B");
-		
+		//button for answer choices, doesnt move the actual option
 		buttonC.setBounds(0,300,100,100);
-		buttonC.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonC.setFont(new Font("MV Boli",Font.BOLD,50));
 		buttonC.setFocusable(false);
 		buttonC.addActionListener(this);
 		buttonC.setText("C");
 		
 		buttonD.setBounds(0,400,100,100);
-		buttonD.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonD.setFont(new Font("MV Boli",Font.BOLD,50));
 		buttonD.setFocusable(false);
 		buttonD.addActionListener(this);
 		buttonD.setText("D");
 		
 		answer_labelA.setBounds(125,100,500,100);
-		answer_labelA.setBackground(new Color(50,50,50));
-		answer_labelA.setForeground(new Color(25,255,0));
+		answer_labelA.setBackground(new Color(250,50,50));
+		answer_labelA.setForeground(new Color(233,220,245));
 		answer_labelA.setFont(new Font("MV Boli",Font.PLAIN,35));
 		
 		answer_labelB.setBounds(125,200,500,100);
 		answer_labelB.setBackground(new Color(50,50,50));
-		answer_labelB.setForeground(new Color(255,225,198));
+		answer_labelB.setForeground(new Color(233,220,245));
 		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,35));
 		
 		answer_labelC.setBounds(125,300,500,100);
 		answer_labelC.setBackground(new Color(50,50,50));
-		answer_labelC.setForeground(new Color(25,255,0));
+		answer_labelC.setForeground(new Color(233,220,245));
 		answer_labelC.setFont(new Font("MV Boli",Font.PLAIN,35));
-		
+		//
 		answer_labelD.setBounds(125,400,500,100);
 		answer_labelD.setBackground(new Color(50,50,50));
-		answer_labelD.setForeground(new Color(25,255,0));
+		answer_labelD.setForeground(new Color(233,220,245));
 		answer_labelD.setFont(new Font("MV Boli",Font.PLAIN,35));
 		
 		seconds_left.setBounds(535,510,100,100);
 		seconds_left.setBackground(new Color(25,25,25));
-		seconds_left.setForeground(new Color(255,0,0));
+		seconds_left.setForeground(new Color(233,220,245));
 		seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
 		seconds_left.setText(String.valueOf(seconds));
 		
-		time_label.setBounds(535,475,100,25);
-		time_label.setBackground(new Color(50,50,50));
-		time_label.setForeground(new Color(255,0,0));
-		time_label.setFont(new Font("MV Boli",Font.PLAIN,16));
+		time_label.setBounds(900,1000,100,25);
+		time_label.setBackground(new Color(255,255,255));
+		time_label.setForeground(new Color(255,255,255));
+		time_label.setFont(new Font("MV Boli",Font.PLAIN,300));
 		time_label.setHorizontalAlignment(JTextField.CENTER);
 		time_label.setText("timer");
 		
 		number_right.setBounds(225,225,200,100);
-		number_right.setBackground(new Color(25,25,25));
-		number_right.setForeground(new Color(25,255,0));
+		number_right.setBackground(new Color(255,255,255));
+		number_right.setForeground(new Color(207,252,255));
 		number_right.setFont(new Font("Ink Free",Font.BOLD,50));
 		number_right.setBorder(BorderFactory.createBevelBorder(1));
 		number_right.setHorizontalAlignment(JTextField.CENTER);
 		number_right.setEditable(false);
 		
 		percentage.setBounds(225,325,200,100);
-		percentage.setBackground(new Color(25,25,25));
-		percentage.setForeground(new Color(25,255,0));
+		percentage.setBackground(new Color(207,252,255));
+		percentage.setForeground(new Color(207,252,255));
 		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
 		percentage.setBorder(BorderFactory.createBevelBorder(1));
 		percentage.setHorizontalAlignment(JTextField.CENTER);
@@ -357,7 +358,7 @@ public class Games extends JFrame implements ActionListener {
 		seconds = 10;
 
 	
-		
+	
 
 		Timer pause = new Timer(2000, new ActionListener() {
 			
