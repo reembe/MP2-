@@ -25,12 +25,12 @@ public class introductionMenu extends JFrame implements ActionListener{
     private int buttonsPressed;
     private String currentOption;
     private ImageIcon logo;
-    private JLabel logogo;
+    //private JLabel logogo;
 
     public introductionMenu() throws FontFormatException, IOException 
     {
 
-        logo = new ImageIcon("LOTE_Helper_logo.jpg");
+        //logo = new ImageIcon("LOTE_Helper_logo.jpg");
 
         File font_file = new File("joystix.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, font_file);
@@ -51,14 +51,15 @@ public class introductionMenu extends JFrame implements ActionListener{
         // JLabel intro1 = new JLabel();
         // intro1.setText("to help you prepare for your LOTE exams!");
         // intro1.setBounds(300,157,10000000,100);
-        // intro1.setForeground(Color.pink);
+        // intro1.setForeground(Color.WHITE);
         // intro1.setFont(sizedFont);
 
         button = new JButton("Submit");
 		button.addActionListener(this);
         button.setBounds(500,600,100,100);
-        button.setBackground(Color.white);
-		button.setForeground(Color.pink);
+        button.setBackground(Color.pink);
+		button.setForeground(Color.black);
+
 		
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(250,40));
@@ -66,30 +67,30 @@ public class introductionMenu extends JFrame implements ActionListener{
         textField.setBounds(200,500,1000,100);
 		textField.setForeground(Color.pink);
 		textField.setBackground(Color.white);
-		textField.setCaretColor(Color.white);
+		textField.setCaretColor(Color.pink);
 		textField.setText("Name: ");
 
         option1 = new JButton("Spanish");
 		option1.addActionListener(this);
         option1.setBounds(600,600,100,100);
-        option1.setBackground(Color.white);
-		option1.setForeground(Color.pink);
+        option1.setBackground(Color.pink);
+		option1.setForeground(Color.black);
 
         option2 = new JButton("French");
 		option2.addActionListener(this);
         option2.setBounds(700,600,100,100);
-        option2.setBackground(Color.white);
-		option2.setForeground(Color.pink);
+        option2.setBackground(Color.pink);
+		option2.setForeground(Color.black);
 
-        continueButton = new JButton("Continue?");
+        continueButton = new JButton("Continue");
 		continueButton.addActionListener(this);
         continueButton.setBounds(800,600,100,100);
-        continueButton.setBackground(Color.white);
-		continueButton.setForeground(Color.pink);
+        continueButton.setBackground(Color.pink);
+		continueButton.setForeground(Color.black);
 
-        logogo = new JLabel();
-        logogo.setBounds(950, 500, 100,100);;
-        logogo.setIcon(logo);
+        //logogo = new JLabel();
+        //logogo.setBounds(950, 500, 100,100);;
+        //logogo.setIcon(logo);
     
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
@@ -101,13 +102,13 @@ public class introductionMenu extends JFrame implements ActionListener{
         this.setVisible(true);
         this.add(title);
         this.add(intro);
-        this.add(logogo);
+        //this.add(logogo);
         this.add(button);
         this.add(option1);
         this.add(option2);
 		this.add(textField);
         this.add(continueButton);
-        this.add(logogo);
+        //this.add(logogo);
         continueButton.setEnabled(false);		
     }
 
