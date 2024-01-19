@@ -146,9 +146,7 @@ public class introductionMenu extends JFrame implements ActionListener{
                 }
            
                 this.setVisible(false);
-           
-
-
+            
             }
             if (buttonsPressed == 2)
        {

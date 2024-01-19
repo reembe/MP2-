@@ -11,7 +11,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.Timer;
 
 
@@ -87,7 +86,6 @@ public class Games extends JFrame implements ActionListener {
                 "9. Quand a eu lieu la première apparition du français dans les documents?",
                 "10. Quel est le nom de notre professeur?"};
 
-
 				
 			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Mr. Newman"}, 
 			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Ms.Eddy"},
@@ -102,7 +100,6 @@ public class Games extends JFrame implements ActionListener {
 			answersa = af;
 
 			GameStarter();
-
 
         }
         if (language.equals("spanish")) {
@@ -130,13 +127,10 @@ public class Games extends JFrame implements ActionListener {
 
 			 GameStarter();
 		}
-
-            
-          
+   
 
 	}
 
-		
         public void GameStarter(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1920,1080);
@@ -147,8 +141,8 @@ public class Games extends JFrame implements ActionListener {
 		
 		textfield.setBounds(-250,0,1920,50);
 		//vv for the bottom background in t/f
-		textfield.setBackground(new Color(255,255,255));
-		textfield.setForeground(new Color(249,207,242));
+		textfield.setBackground(new Color(255,255,255)); //white
+		textfield.setForeground(new Color(249,207,242)); //purple
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
@@ -351,24 +345,19 @@ public class Games extends JFrame implements ActionListener {
 		if(AnswerChars[char_list] != 'D')
 			answer_labelD.setForeground(new Color(255,0,0));
 		
-		
-		
-		
 			
 		seconds = 10;
 
-	
-	
 
 		Timer pause = new Timer(2000, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				answer_labelA.setForeground(new Color(25,255,0));
-				answer_labelB.setForeground(new Color(25,255,0));
-				answer_labelC.setForeground(new Color(25,255,0));
-				answer_labelD.setForeground(new Color(25,255,0));
+				answer_labelA.setForeground(new Color(233,220,245));
+				answer_labelB.setForeground(new Color(233,220,245));
+				answer_labelC.setForeground(new Color(233,220,245));
+				answer_labelD.setForeground(new Color(233,220,245));
 				
 				answer = ' ';
 				seconds=10;
@@ -389,8 +378,6 @@ public class Games extends JFrame implements ActionListener {
 		
 	}
 	
-			
-		
 
 	public void results(){
 		
@@ -414,13 +401,9 @@ public class Games extends JFrame implements ActionListener {
 		frame.add(number_right);
 		frame.add(percentage);
 
-		returnHome.setVisible(true);
-
-		
+		returnHome.setVisible(true);	
 		
 	}
-
-	
 
     public void Listening() {
         if (language.equals("french")) {
@@ -430,26 +413,5 @@ public class Games extends JFrame implements ActionListener {
 
         }
     }
-
-    // public void fillInTheBlank() {
-    //     if (language.equals("french")) {
-    //         String[] fitb = {"1. Nous _avoir_ un examen lundi.",
-    //             "2. Elle __ française.",
-    //             "3. Le chien est __ la table.",
-    //             "4. Tu __ venir à la fête?",
-    //             "5. Les élèves __ beaucoup de devoirs.",
-    //             "6. __-tu au cinéma hier soir?",
-    //             "7. La fille __ un livre intéressant.",
-    //             "8. Nous __ dîner ensemble ce soir.",
-    //             "9. Le professeur __ la leçon.",
-    //             "10. Vous __ du café?"};
-    //     }
-    //     if (language.equals("spanish")) {
-
-    //     }
-    // }
-
-    
-
     }
 

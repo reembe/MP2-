@@ -100,7 +100,7 @@ public class MyFrame extends JFrame implements ActionListener{
         l.setText("LOTE Helper");
         l.setHorizontalTextPosition(JLabel.CENTER);
         l.setVerticalTextPosition(JLabel.TOP);
-        l.setForeground(Color.blue);
+        l.setForeground(Color.pink);
         l.setFont(new Font("MV Boli", Font.BOLD, 20));
  
        

@@ -20,8 +20,6 @@ import javax.sound.sampled.*;
 
 public class mainMenu extends JFrame implements ActionListener{
 
-
-
 private JMenu helpMenu;
 private JMenu saveMenu;
 private JMenu restartMenu;
@@ -32,15 +30,28 @@ private JButton Listening;
 private JButton fillInTheBlank;
 private JButton matchingGame;
 private JButton trueorFalse;
+private JButton mcQuiz2;
+private JButton surprise;
+private JButton mcQuiz3;
 private JLabel title;
 private JLabel submessage;
 private JLabel welcomemessage;
 private static User user;
+private ImageIcon logo;
+private JLabel logol;
 
 
     public mainMenu(User s) throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
         user = s;
+
+        ImageIcon logo = new ImageIcon("LOTE_HELPER_logo.jpg");
+        logol =  new JLabel();
+        logol.setBounds(500,600,400,150);
+        logol.setForeground(Color.pink);
+        logol.setFont(new Font("MV Boli", Font.BOLD, 20));
+
+        logol.setIcon(logo);
 
         menuBar = new JMenuBar();
         saveMenu = new JMenu("Save");
@@ -49,7 +60,7 @@ private static User user;
         helpMenu = new JMenu("Help");
 
         mcQuiz = new JButton();
-        mcQuiz.setBounds(0,100,400,150);
+        mcQuiz.setBounds(0,80,400,150);
 		mcQuiz.setFont(new Font("MV Boli",Font.BOLD,35)); 
         
         // //import joystix.ttf later for all options
@@ -58,33 +69,40 @@ private static User user;
 		mcQuiz.addActionListener(this);
 		mcQuiz.setText("Level 1: MC Quiz");
 
+        mcQuiz2 = new JButton();
+        mcQuiz2.setBounds(500,80,400,150);
+		mcQuiz2.setFont(new Font("MV Boli",Font.BOLD,35));
+		mcQuiz2.setFocusable(false);
+		mcQuiz2.addActionListener(this);
+		mcQuiz2.setText("Level 2: MC Quiz");
+
+        mcQuiz3 = new JButton();
+        mcQuiz3.setBounds(1040,80,400,150);
+		mcQuiz3.setFont(new Font("MV Boli",Font.BOLD,35));
+		mcQuiz3.setFocusable(false);
+		mcQuiz3.addActionListener(this);
+		mcQuiz3.setText("Level 3: MC Quiz");
+        
         Listening = new JButton();
-        Listening.setBounds(0,100,100,300);
+        Listening.setBounds(0,300,400,150);
 		Listening.setFont(new Font("MV Boli",Font.BOLD,35));
 		Listening.setFocusable(false);
 		Listening.addActionListener(this);
 		Listening.setText("Listening Practice!");
 
-        // fillInTheBlank = new JButton();
-        // fillInTheBlank.setBounds(0,100,100,100);
-		// fillInTheBlank.setFont(new Font("MV Boli",Font.BOLD,35));
-		// fillInTheBlank.setFocusable(false);
-		// fillInTheBlank.addActionListener(this);
-		// fillInTheBlank.setText("Completing Sentences!");
-
-        // matchingGame = new JButton();
-        // matchingGame.setBounds(0,100,100,100);
-		// matchingGame.setFont(new Font("MV Boli",Font.BOLD,35));
-		// matchingGame.setFocusable(false);
-		// matchingGame.addActionListener(this);
-		// matchingGame.setText("Match Terms!");
-
         trueorFalse = new JButton();
-        trueorFalse.setBounds(0,500,300,100);
+        trueorFalse.setBounds(500,300,400,150);
 		trueorFalse.setFont(new Font("MV Boli",Font.BOLD,35));
 		trueorFalse.setFocusable(false);
 		trueorFalse.addActionListener(this);
 		trueorFalse.setText("True or False?");
+
+        surprise = new JButton();
+        surprise.setBounds(1040,300,400,150);
+		surprise.setFont(new Font("MV Boli",Font.BOLD,35));
+		surprise.setFocusable(false);
+		surprise.addActionListener(this);
+		surprise.setText("SURPRISE!");
 
         title = new JLabel();
         title.setText("Please select which mode you want to practice with:");
@@ -104,22 +122,21 @@ private static User user;
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
-        this.getContentPane().setBackground(new Color(50,94,168));
+        this.getContentPane().setBackground(new Color(255,238,255));
         this.setLayout(null);
         this.setResizable(true);
         this.setTitle("LOTE Helper");
-
-
-
-
-
-
 
 
         this.setVisible(true);
 
         this.add(mcQuiz);
         this.add(trueorFalse);
+        this.add(mcQuiz2);
+        this.add(mcQuiz3);
+        this.add(Listening);
+        this.add(logol);
+        this.add(surprise);
 
         menuBar.add(saveMenu);
         menuBar.add(restartMenu);
@@ -127,7 +144,6 @@ private static User user;
         menuBar.add(helpMenu);
         this.setJMenuBar(menuBar);
         
-  
     }
 
     @Override
@@ -145,12 +161,12 @@ private static User user;
             if (user.getLanguage().equals("french"))
             {
             TrueOrFalseF TrueOrFalseF = new TrueOrFalseF();
-            TrueOrFalseF.Quiz();
+            TrueOrFalseF.Quiz(user);
             this.setVisible(false);
             } 
             else{
             TrueOrFalseS TrueOrFalseS = new TrueOrFalseS();
-            TrueOrFalseS.Quiz();
+            TrueOrFalseS.Quiz(user);
             this.setVisible(false);
             }
         }
@@ -164,7 +180,8 @@ private static User user;
                 e1.printStackTrace();
             }
         }
-    
+
+      
 
     }
 }
