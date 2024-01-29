@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.*;
 
+// add more comments later
+
 public class mainMenu extends JFrame implements ActionListener{
 
 private JMenu helpMenu;
@@ -44,6 +46,8 @@ private JLabel logol;
     public mainMenu(User s) throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
         user = s;
+
+        // user.count = 0;
 
         ImageIcon logo = new ImageIcon("LOTE_HELPER_logo.jpg");
         logol =  new JLabel();
@@ -156,6 +160,20 @@ private JLabel logol;
                 this.setVisible(false);
           
         }
+        if (e.getSource() == mcQuiz2)
+        {
+            Games2 Games2 = new Games2("mcQuiz", user);
+                Games2.mcQuiz();
+                this.setVisible(false);
+          
+        }
+        if (e.getSource() == mcQuiz3)
+        {
+            Games3n Games = new Games3n("mcQuiz", user);
+                Games.mcQuiz();
+                this.setVisible(false);
+          
+        }
         if (e.getSource() == trueorFalse)
         {
             if (user.getLanguage().equals("french"))
@@ -168,6 +186,31 @@ private JLabel logol;
             TrueOrFalseS TrueOrFalseS = new TrueOrFalseS();
             TrueOrFalseS.Quiz(user);
             this.setVisible(false);
+            }
+        }
+
+        if (e.getSource() == Listening)
+        {
+            if (user.getLanguage().equals("french"))
+            {
+            Listening Listening = new Listening(user);
+            try {
+                Listening.Quiz();
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            this.setVisible(false);
+            } 
+            else{
+                Listenings Listenings = new Listenings(user);
+                try {
+                    Listenings.Quiz();
+                } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+                this.setVisible(false);
             }
         }
         if (e.getSource() == restartMenu)

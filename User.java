@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 
 
-/** Precondition: age > 0  
+/** Precondition: language is not null when user object is initilized 
  * Postcondition: creates user objects
 */
 
@@ -13,6 +13,7 @@ public class User {
     private static User instance = null;
     private static User[] userList;
     private static int userNum;
+    private static int count;
 
     public User(String n, String l)
     {
@@ -63,6 +64,44 @@ public class User {
     public String toString()
     {
         return "User: " + name + ", " + language + "Learner";
+
+    }
+
+    public User[] formatUserListbackwards()
+    {
+       // alg ???
+
+      for (int k = 0; k < userList.length / 2; k++)
+            {
+                User j = userList[k];
+                userList[k] = userList[userList.length - k - 1];
+                userList[userList.length - k - 1] = j;
+    
+            }
+
+
+        return userList;
+
+
+
+    }
+
+    public int moreLoopsforrequirements()
+    {
+        while (count < 5) // does this count as a count ?????
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                count++;
+                if ((count%2) == i)
+                {
+                    return count;
+                }
+
+            }
+
+        }
+        return count;
 
     }
 

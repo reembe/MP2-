@@ -117,11 +117,11 @@ public class MyFrame extends JFrame implements ActionListener{
         // this.add(button);
         this.add(buttonA);
     
-        // File file = new File("musik.wav");
-        // AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-        // Clip clip = AudioSystem.getClip();
-        // clip.open(audioStream);
-        // clip.start();
+        File file = new File("musik.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
         
   
     }
