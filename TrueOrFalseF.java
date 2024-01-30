@@ -91,7 +91,7 @@ public class TrueOrFalseF implements ActionListener{
 		
 		textfield.setBounds(-250,0,1920,50);
 		textfield.setBackground(new Color(255,255,255));
-		textfield.setForeground(new Color(25,255,0));
+		textfield.setForeground(new Color(249,207,242));//purble
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
@@ -101,7 +101,7 @@ public class TrueOrFalseF implements ActionListener{
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
 		textarea.setBackground(new Color(255,255,255));
-		textarea.setForeground(new Color(25,255,0));
+		textarea.setForeground(new Color(249,207,242));
 		textarea.setFont(new Font("MV Boli",Font.BOLD,25));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
