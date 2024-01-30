@@ -142,7 +142,7 @@ public class Games extends JFrame implements ActionListener {
 		textfield.setBounds(-250,0,1920,50);
 		//vv for the bottom background in t/f
 		textfield.setBackground(new Color(255,255,255)); //white
-		textfield.setForeground(new Color(249,207,242)); //purple
+		textfield.setForeground(new Color(249,207,242)); //purple, heading w/question #
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
@@ -152,7 +152,7 @@ public class Games extends JFrame implements ActionListener {
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
 		textarea.setBackground(new Color(255,255,255));
-		textarea.setForeground(new Color(249,207,242));
+		textarea.setForeground(new Color(249,207,242)); //purple, question color
 		textarea.setFont(new Font("MV Boli",Font.BOLD,40));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
@@ -234,7 +234,7 @@ public class Games extends JFrame implements ActionListener {
 		
 		percentage.setBounds(225,325,200,100);
 		percentage.setBackground(new Color(207,252,255));
-		percentage.setForeground(new Color(207,252,255));
+		percentage.setForeground(new Color(249,207,242)); //percentage color
 		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
 		percentage.setBorder(BorderFactory.createBevelBorder(1));
 		percentage.setHorizontalAlignment(JTextField.CENTER);
