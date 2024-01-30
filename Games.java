@@ -164,7 +164,7 @@ public class Games extends JFrame implements ActionListener {
 		buttonA.setText("A");
 
 		returnHome = new JButton();
-		returnHome.setBounds(0,500,100,100);
+		returnHome.setBounds(0,500,500,100);
 		returnHome.setFont(new Font("MV Boli",Font.BOLD,50));
 		returnHome.setFocusable(false);
 		returnHome.addActionListener(this);
