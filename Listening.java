@@ -36,12 +36,13 @@ public class Listening implements ActionListener{
     private static String answer;
     private static int correct_guesses;
 	private JButton returnHome;
+	private Clip clip;
 	private static int seconds = 10;
 	private static int char_list = -1;
 	private String[] AnswerString;
 
 
-	private Timer timer = new Timer(1000, new ActionListener() {
+	private Timer timer = new Timer(10000, new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -95,55 +96,51 @@ public class Listening implements ActionListener{
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1920,1080);
+		//bottom big half bg
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(null);
 		frame.setResizable(false);
-
-		returnHome = new JButton();
-		returnHome.setBounds(0,500,100,100);
-		returnHome.setFont(new Font("MV Boli",Font.BOLD,50));
-		returnHome.setFocusable(false);
-		returnHome.addActionListener(this);
-		returnHome.setText("Return to Menu?");
+		frame.setTitle("Listening");
 		
 		textfield.setBounds(-250,0,1920,50);
-		textfield.setBackground(new Color(255,255,255));
-		textfield.setForeground(new Color(25,255,0));
+		//vv for the bottom background in t/f
+		textfield.setBackground((Color.pink)); //pink from intro menu
+		textfield.setForeground(new Color(0,0,0)); //nvm
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
-		
+		//vv second top rectangle thing with the questions displayed
 		textarea.setBounds(0,50,1920,50);
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
-		textarea.setBackground(new Color(255,255,255));
-		textarea.setForeground(new Color(25,255,0));
-		textarea.setFont(new Font("MV Boli",Font.BOLD,25));
+		textarea.setBackground((Color.pink));
+		textarea.setForeground(new Color(0,0,0)); //lol nvm
+		textarea.setFont(new Font("WEST JAVA",Font.BOLD,40));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
 		
 		buttonA.setBounds(0,100,600,100);
-		buttonA.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonA.setFont(new Font("WEST JAVA",Font.BOLD,35));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("True");
 		
 		buttonB.setBounds(840,100,600,100);
-		buttonB.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonB.setFont(new Font("WEST JAVA",Font.BOLD,35));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("False");
 		
-		seconds_left.setBounds(535,510,100,100);
-		seconds_left.setBackground(new Color(255,255,255));
-		seconds_left.setForeground(new Color(255,0,0));
+		seconds_left.setBounds(1250,650,200,200);
+		seconds_left.setBackground(Color.black);
+		seconds_left.setForeground(Color.pink);
 		seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
 		seconds_left.setText(String.valueOf(seconds));
-
+		
 		//*dont change anything except for the color of the words
 		number_right.setBounds(620,225,200,100);
 		number_right.setBackground(new Color(255,255,255));
@@ -211,7 +208,7 @@ public class Listening implements ActionListener{
 			if(e.getSource() == returnHome)
 			{
 				try {
-					mainMenu mainMenu = new mainMenu(user);
+					MainMenu MainMenu = new MainMenu(user);
 					frame.setVisible(false);
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 					// TODO Auto-generated catch block
@@ -271,6 +268,8 @@ public class Listening implements ActionListener{
 		
 		frame.add(number_right);
 		frame.add(percentage);
+
+		clip.stop();
 
 		returnHome.setVisible(true);	
 		

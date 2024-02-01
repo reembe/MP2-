@@ -24,7 +24,7 @@ public class introductionMenu extends JFrame implements ActionListener{
 	private JTextField textField;
     private int buttonsPressed;
     private String currentOption;
-    private ImageIcon logo;
+    // private ImageIcon logo;
     //private JLabel logogo;
 
     public introductionMenu() throws FontFormatException, IOException 
@@ -39,13 +39,15 @@ public class introductionMenu extends JFrame implements ActionListener{
         JLabel title = new JLabel();
         title.setText("Welcome to LOTE Helper!");
         title.setBounds(300,57,10000000,100);
-        title.setForeground(Color.pink);
+        title.setForeground(Color.black);
+
+        
         title.setFont(sizedFont);
 
         JLabel intro = new JLabel();
         intro.setText("Enter your name then select a language");
         intro.setBounds(100,107,100000,100);
-        intro.setForeground(Color.pink);
+        intro.setForeground(Color.black);
         intro.setFont(sizedFont);
 
         // JLabel intro1 = new JLabel();
@@ -57,7 +59,7 @@ public class introductionMenu extends JFrame implements ActionListener{
         button = new JButton("Submit");
 		button.addActionListener(this);
         button.setBounds(500,600,100,100);
-        button.setBackground(Color.pink);
+        button.setBackground(Color.white);
 		button.setForeground(Color.black);
 
 		
@@ -73,19 +75,19 @@ public class introductionMenu extends JFrame implements ActionListener{
         option1 = new JButton("Spanish");
 		option1.addActionListener(this);
         option1.setBounds(600,600,100,100);
-        option1.setBackground(Color.pink);
+        option1.setBackground(Color.white);
 		option1.setForeground(Color.black);
 
         option2 = new JButton("French");
 		option2.addActionListener(this);
         option2.setBounds(700,600,100,100);
-        option2.setBackground(Color.pink);
+        option2.setBackground(Color.white);
 		option2.setForeground(Color.black);
 
         continueButton = new JButton("Continue");
 		continueButton.addActionListener(this);
         continueButton.setBounds(800,600,100,100);
-        continueButton.setBackground(Color.pink);
+        continueButton.setBackground(Color.white);
 		continueButton.setForeground(Color.black);
 
         //logogo = new JLabel();
@@ -94,7 +96,7 @@ public class introductionMenu extends JFrame implements ActionListener{
     
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1920,1080);
-        this.getContentPane().setBackground(Color.white);
+        this.getContentPane().setBackground(new Color(255,238,255));
         this.setLayout(null);
         this.setResizable(true);
         this.setTitle("LOTE Helper");
@@ -139,7 +141,7 @@ public class introductionMenu extends JFrame implements ActionListener{
             User user = new User(textField.getText(), currentOption);
           
                 try {
-                    mainMenu mainMenu = new mainMenu(user);
+                    MainMenu MainMenu = new MainMenu(user);
                 } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();

@@ -75,24 +75,15 @@ public class Games extends JFrame implements ActionListener {
 		
         if (language.equals("french")) {
             String[] qf = {
-                "1. Combien de pronoms existent-ils?",
-                "2. Quelles sont les conjugaisons de base?",
-                "3. Quel temps est utilisé pour un événement passé continu?",
-                "4. Combien de pays francophones existent-ils?",
-                "5. Comment conjuguer un verbe en -IR avec le pronom 'nous'?",
-                "6. Comment dit-on bonjour en français?",
-                "7. Combien de temps verbaux existent-ils?",
-                "8. Qui est le meilleur acteur français (en vie)?",
-                "9. Quand a eu lieu la première apparition du français dans les documents?",
-                "10. Quel est le nom de notre professeur?"};
+                "1. What is \"mom\" in French?",
+                "2. What is \"hi\" in French?",
+                "3. What is the capital of France?",
+                "4. Which of the following means \"dog\" in French?",
+                "5. How do you say \"I don't know\" in French?"};
 
 				
-			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Mr. Newman"}, 
-			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Ms.Eddy"},
-			{"6", "e, es, e, ont, ez, ons", "Futur simple", "8", "ent", "Bonsoir", "15", "Anne Hathaway", "L'année 1052", "Mr. Holmer"},
-			{"5", "s, s, es, ons, ez, ent", "Present", "23", "ont", "Bonne nuit", "10", "Angelina Jolie", "L'année 2022", "Eric Adams"}};
-			
-			char[] AnswerChar = {'C', 'A', 'B', 'B', 'A', 'B', 'A', 'A', 'A', 'C'};
+			String[][] af = {{"Mom","Hola", "Paris", "Doge", "Idk"}, {"Madre", "Hello", "Italy", "Perro", "Je ne sais pas"},{"Maman","Salut", "Alabama",  "Chat", "Ne je sais pais"}, {"Moma","Ih", "Normandy", "Chien", "Sais pais ne je"}};
+			char[] AnswerChar = {'C', 'C', 'A', 'D', 'B'};
 
 			AnswerChars = AnswerChar;
 
@@ -153,60 +144,62 @@ public class Games extends JFrame implements ActionListener {
 		textarea.setWrapStyleWord(true);
 		textarea.setBackground((Color.pink));
 		textarea.setForeground(new Color(0,0,0)); //lol nvm
-		textarea.setFont(new Font("MV Boli",Font.BOLD,40));
+		textarea.setFont(new Font("WEST JAVA",Font.BOLD,40));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
 		
 		buttonA.setBounds(0,100,175,175);
-		buttonA.setFont(new Font("MV Boli",Font.BOLD,100));
+		buttonA.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("A");
 
 		returnHome = new JButton(); //REEMMM THIS IS WHERE I CHNANGED FOR THE RETURN HOME BUTTON TO EXTEND IT
 		returnHome.setBounds(500,500,500,100);
-		returnHome.setFont(new Font("MV Boli",Font.BOLD,100));
+		returnHome.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		returnHome.setFocusable(false);
 		returnHome.addActionListener(this);
 		returnHome.setText("Return");
 		
 		buttonB.setBounds(0,290,175,175);
-		buttonB.setFont(new Font("MV Boli",Font.BOLD,100));
+		buttonB.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("B");
+
+		frame.setTitle("McQuiz");
 		//button for answer choices, doesnt move the actual option
 		buttonC.setBounds(0,480,175,175);
-		buttonC.setFont(new Font("MV Boli",Font.BOLD,100));
+		buttonC.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonC.setFocusable(false);
 		buttonC.addActionListener(this);
 		buttonC.setText("C");
 		
 		buttonD.setBounds(0,670,175,175);
-		buttonD.setFont(new Font("MV Boli",Font.BOLD,100));
+		buttonD.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonD.setFocusable(false);
 		buttonD.addActionListener(this);
 		buttonD.setText("D");
 		
-		answer_labelA.setBounds(200,150,500,100);
+		answer_labelA.setBounds(200,150,5000,100);
 		answer_labelA.setBackground(new Color(250,50,50));
 		answer_labelA.setForeground(new Color(0,0,0));
-		answer_labelA.setFont(new Font("MV Boli",Font.PLAIN,50));
+		answer_labelA.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		
-		answer_labelB.setBounds(200,325,500,100);
+		answer_labelB.setBounds(200,325,5000,100);
 		answer_labelB.setBackground(new Color(50,50,50));
 		answer_labelB.setForeground(new Color(0,0,0));
-		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,50));
+		answer_labelB.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		
-		answer_labelC.setBounds(200,525,500,100);
+		answer_labelC.setBounds(200,525,5000,100);
 		answer_labelC.setBackground(new Color(50,50,50));
 		answer_labelC.setForeground(new Color(0,0,0));
-		answer_labelC.setFont(new Font("MV Boli",Font.PLAIN,50));
+		answer_labelC.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		//
-		answer_labelD.setBounds(200,725,500,100);
+		answer_labelD.setBounds(200,725,5000,100);
 		answer_labelD.setBackground(new Color(50,50,50));
 		answer_labelD.setForeground(new Color(0,0,0));
-		answer_labelD.setFont(new Font("MV Boli",Font.PLAIN,50));
+		answer_labelD.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		
 		seconds_left.setBounds(1250,650,200,200);
 		seconds_left.setBackground(new Color(25,25,25));
@@ -216,13 +209,7 @@ public class Games extends JFrame implements ActionListener {
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
 		seconds_left.setText(String.valueOf(seconds));
-		
-		time_label.setBounds(900,1000,100,25);
-		time_label.setBackground(new Color(255,255,255));
-		time_label.setForeground(new Color(255,255,255));
-		time_label.setFont(new Font("MV Boli",Font.PLAIN,300));
-		time_label.setHorizontalAlignment(JTextField.CENTER);
-		time_label.setText("timer");
+	
 		
 		number_right.setBounds(640,225,200,100);
 		number_right.setBackground(new Color(255,255,255));
@@ -316,7 +303,7 @@ public class Games extends JFrame implements ActionListener {
 			if(e.getSource() == returnHome)
 			{
 				try {
-					mainMenu mainMenu = new mainMenu(user);
+					MainMenu MainMenu = new MainMenu(user);
 					frame.setVisible(false);
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 					// TODO Auto-generated catch block

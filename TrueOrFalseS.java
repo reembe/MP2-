@@ -84,7 +84,7 @@ public class TrueOrFalseS implements ActionListener{
 
 		returnHome = new JButton();
 		returnHome.setBounds(0,500,100,100);
-		returnHome.setFont(new Font("MV Boli",Font.BOLD,50));
+		returnHome.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		returnHome.setFocusable(false);
 		returnHome.addActionListener(this);
 		returnHome.setText("Return to Menu?");
@@ -102,25 +102,25 @@ public class TrueOrFalseS implements ActionListener{
 		textarea.setWrapStyleWord(true);
 		textarea.setBackground(new Color(255,255,255));
 		textarea.setForeground(new Color(25,255,0));
-		textarea.setFont(new Font("MV Boli",Font.BOLD,25));
+		textarea.setFont(new Font("WEST JAVA",Font.BOLD,25));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
 		
 		buttonA.setBounds(0,100,600,100);
-		buttonA.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonA.setFont(new Font("WEST JAVA",Font.BOLD,35));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("True");
 		
 		buttonB.setBounds(840,100,600,100);
-		buttonB.setFont(new Font("MV Boli",Font.BOLD,35));
+		buttonB.setFont(new Font("WEST JAVA",Font.BOLD,35));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("False");
 		
-		seconds_left.setBounds(535,510,100,100);
-		seconds_left.setBackground(new Color(255,255,255));
-		seconds_left.setForeground(new Color(255,0,0));
+		seconds_left.setBounds(1250,650,200,200);
+		seconds_left.setBackground(Color.black);
+		seconds_left.setForeground(Color.pink);
 		seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
@@ -194,7 +194,7 @@ public class TrueOrFalseS implements ActionListener{
 			if(e.getSource() == returnHome)
 			{
 				try {
-					mainMenu mainMenu = new mainMenu(user);
+					MainMenu MainMenu = new MainMenu(user);
 					frame.setVisible(false);
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 					// TODO Auto-generated catch block

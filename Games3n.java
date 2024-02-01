@@ -71,7 +71,7 @@ public class Games3n extends JFrame implements ActionListener {
     public void mcQuiz() {
 
 		
-// add questions later
+
 		
         if (language.equals("french")) {
             String[] qf = {
@@ -141,8 +141,8 @@ public class Games3n extends JFrame implements ActionListener {
 		
 		textfield.setBounds(-250,0,1920,50);
 		//vv for the bottom background in t/f
-		textfield.setBackground(new Color(255,255,255)); //white
-		textfield.setForeground(new Color(249,207,242)); //purple
+		textfield.setBackground((Color.pink)); //pink from intro menu
+		textfield.setForeground(new Color(0,0,0)); //nvm
 		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
@@ -151,90 +151,86 @@ public class Games3n extends JFrame implements ActionListener {
 		textarea.setBounds(0,50,1920,50);
 		textarea.setLineWrap(true);
 		textarea.setWrapStyleWord(true);
-		textarea.setBackground(new Color(255,255,255));
-		textarea.setForeground(new Color(249,207,242));
-		textarea.setFont(new Font("MV Boli",Font.BOLD,40));
+		textarea.setBackground((Color.pink));
+		textarea.setForeground(new Color(0,0,0)); //lol nvm
+		textarea.setFont(new Font("WEST JAVA",Font.BOLD,40));
 		textarea.setBorder(BorderFactory.createBevelBorder(1));
 		textarea.setEditable(false);
 		
-		buttonA.setBounds(0,100,100,100);
-		buttonA.setFont(new Font("MV Boli",Font.BOLD,50));
+		buttonA.setBounds(0,100,175,175);
+		buttonA.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonA.setFocusable(false);
 		buttonA.addActionListener(this);
 		buttonA.setText("A");
 
-		returnHome = new JButton();
-		returnHome.setBounds(0,500,100,100);
-		returnHome.setFont(new Font("MV Boli",Font.BOLD,50));
+		returnHome = new JButton(); //REEMMM THIS IS WHERE I CHNANGED FOR THE RETURN HOME BUTTON TO EXTEND IT
+		returnHome.setBounds(500,500,500,100);
+		returnHome.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		returnHome.setFocusable(false);
 		returnHome.addActionListener(this);
-		returnHome.setText("Return to Menu?");
+		returnHome.setText("Return");
 		
-		buttonB.setBounds(0,200,100,100);
-		buttonB.setFont(new Font("MV Boli",Font.BOLD,50));
+		buttonB.setBounds(0,290,175,175);
+		buttonB.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonB.setFocusable(false);
 		buttonB.addActionListener(this);
 		buttonB.setText("B");
+
+		frame.setTitle("McQuiz");
 		//button for answer choices, doesnt move the actual option
-		buttonC.setBounds(0,300,100,100);
-		buttonC.setFont(new Font("MV Boli",Font.BOLD,50));
+		buttonC.setBounds(0,480,175,175);
+		buttonC.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonC.setFocusable(false);
 		buttonC.addActionListener(this);
 		buttonC.setText("C");
 		
-		buttonD.setBounds(0,400,100,100);
-		buttonD.setFont(new Font("MV Boli",Font.BOLD,50));
+		buttonD.setBounds(0,670,175,175);
+		buttonD.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		buttonD.setFocusable(false);
 		buttonD.addActionListener(this);
 		buttonD.setText("D");
 		
-		answer_labelA.setBounds(125,100,500,100);
+		answer_labelA.setBounds(200,150,5000,100);
 		answer_labelA.setBackground(new Color(250,50,50));
-		answer_labelA.setForeground(new Color(233,220,245));
-		answer_labelA.setFont(new Font("MV Boli",Font.PLAIN,35));
+		answer_labelA.setForeground(new Color(0,0,0));
+		answer_labelA.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		
-		answer_labelB.setBounds(125,200,500,100);
+		answer_labelB.setBounds(200,325,5000,100);
 		answer_labelB.setBackground(new Color(50,50,50));
-		answer_labelB.setForeground(new Color(233,220,245));
-		answer_labelB.setFont(new Font("MV Boli",Font.PLAIN,35));
+		answer_labelB.setForeground(new Color(0,0,0));
+		answer_labelB.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		
-		answer_labelC.setBounds(125,300,500,100);
+		answer_labelC.setBounds(200,525,5000,100);
 		answer_labelC.setBackground(new Color(50,50,50));
-		answer_labelC.setForeground(new Color(233,220,245));
-		answer_labelC.setFont(new Font("MV Boli",Font.PLAIN,35));
+		answer_labelC.setForeground(new Color(0,0,0));
+		answer_labelC.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		//
-		answer_labelD.setBounds(125,400,500,100);
+		answer_labelD.setBounds(200,725,5000,100);
 		answer_labelD.setBackground(new Color(50,50,50));
-		answer_labelD.setForeground(new Color(233,220,245));
-		answer_labelD.setFont(new Font("MV Boli",Font.PLAIN,35));
+		answer_labelD.setForeground(new Color(0,0,0));
+		answer_labelD.setFont(new Font("WEST JAVA",Font.PLAIN,50));
 		
-		seconds_left.setBounds(535,510,100,100);
+		seconds_left.setBounds(1250,650,200,200);
 		seconds_left.setBackground(new Color(25,25,25));
 		seconds_left.setForeground(new Color(233,220,245));
-		seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
+		seconds_left.setFont(new Font("Ink Free",Font.BOLD,100));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
 		seconds_left.setText(String.valueOf(seconds));
+	
 		
-		time_label.setBounds(900,1000,100,25);
-		time_label.setBackground(new Color(255,255,255));
-		time_label.setForeground(new Color(255,255,255));
-		time_label.setFont(new Font("MV Boli",Font.PLAIN,300));
-		time_label.setHorizontalAlignment(JTextField.CENTER);
-		time_label.setText("timer");
-		
-		number_right.setBounds(225,225,200,100);
+		number_right.setBounds(640,225,200,100);
 		number_right.setBackground(new Color(255,255,255));
-		number_right.setForeground(new Color(207,252,255));
+		number_right.setForeground(new Color(0,0,0));
 		number_right.setFont(new Font("Ink Free",Font.BOLD,50));
 		number_right.setBorder(BorderFactory.createBevelBorder(1));
 		number_right.setHorizontalAlignment(JTextField.CENTER);
 		number_right.setEditable(false);
 		
-		percentage.setBounds(225,325,200,100);
+		percentage.setBounds(640,325,200,100);
 		percentage.setBackground(new Color(207,252,255));
-		percentage.setForeground(new Color(207,252,255));
+		percentage.setForeground(new Color(249,207,242)); //percentage color
 		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
 		percentage.setBorder(BorderFactory.createBevelBorder(1));
 		percentage.setHorizontalAlignment(JTextField.CENTER);
@@ -316,7 +312,7 @@ public class Games3n extends JFrame implements ActionListener {
 			if(e.getSource() == returnHome)
 			{
 				try {
-					mainMenu mainMenu = new mainMenu(user);
+					MainMenu MainMenu = new MainMenu(user);
 					frame.setVisible(false);
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
 					// TODO Auto-generated catch block
