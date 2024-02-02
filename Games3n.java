@@ -74,25 +74,17 @@ public class Games3n extends JFrame implements ActionListener {
 
 		
         if (language.equals("french")) {
-            String[] qf = {
-                "1. Combien de pronoms existent-ils?",
-                "2. Quelles sont les conjugaisons de base?",
-                "3. Quel temps est utilisé pour un événement passé continu?",
-                "4. Combien de pays francophones existent-ils?",
-                "5. Comment conjuguer un verbe en -IR avec le pronom 'nous'?",
-                "6. Comment dit-on bonjour en français?",
-                "7. Combien de temps verbaux existent-ils?",
-                "8. Qui est le meilleur acteur français (en vie)?",
-                "9. Quand a eu lieu la première apparition du français dans les documents?",
-                "10. Quel est le nom de notre professeur?"};
+            String[] qf = {"1. Que signifie  \"boire\" ?", "2. À quelle heure est-il utilisé pour discuter d'informations générales ?",
+			"3. Quelle nourriture est consommée vers 20 heures ?",
+			"4. Cette question n'a pas de sens, appuyez sur la troisième option?",
+			"5. Qu’est-ce qui a des ailes et ne vole pas? "};
 
-				
-			String[][] af = {{"8", "e, es, e, ons, ez, ent", "Passé composé", "18", "issons", "Bonjourné", "21", "Omar Sy", "L'année 842", "Mr. Newman"}, 
-			{"4", "s, s, x, ons, ez, ent", "Imparfait", "28", "ons", "Salut", "9", "Timothee Chalamet", "L'année 843", "Ms.Eddy"},
-			{"6", "e, es, e, ont, ez, ons", "Futur simple", "8", "ent", "Bonsoir", "15", "Anne Hathaway", "L'année 1052", "Mr. Holmer"},
-			{"5", "s, s, es, ons, ez, ent", "Present", "23", "ont", "Bonne nuit", "10", "Angelina Jolie", "L'année 2022", "Eric Adams"}};
-			
-			char[] AnswerChar = {'C', 'A', 'B', 'B', 'A', 'B', 'A', 'A', 'A', 'C'};
+		String[][] af = {{"Manger de la nourriture","Passé progressif","Snack","Apprendre","A moulin "},
+		{"Jouer dans la piscine", "Imparfait", "Déjeuner", "Danser", "Un hippocampe" },
+		{"Consommer un liquide", "Prétérit", "Dîner", "Baiser", "Le papier toilette"},
+		{"Manger du gâteau", "Présenter en continu", "Petit déjeuner", "Nettoyer", "Je ne sais pas :("}};
+
+			char[] AnswerChar = {'C', 'A', 'B', 'B', 'A'};
 
 			AnswerChars = AnswerChar;
 
@@ -103,23 +95,18 @@ public class Games3n extends JFrame implements ActionListener {
 
         }
         if (language.equals("spanish")) {
-            String[] qs = {"1. What is 3 in Spanish?",
-                "2. Which of the following means \"cat\" in Spanish?",
-                "3. What is the female pronoun?",
-                "4. How many Spanish speaking countries are there?",
-                "5. Which of the following is the imperfect tense for the verb \"ser\" in the yo form?",
-                "6. Which of the following greetings means \"good morning\" in Spanish?",
-                "7. How do you conjugate the yo form of the verb \"correr\" in the present tense?",
-                "8. Which of the following means \"to buy\" in Spanish?",
-                "9. What does \"como se dice\" mean in English?",
-                "10. What does \"tu madre\" mean in English?"};
- 
-            String[][] as = {{"Tres","Perro","Usted","1","Era","Hola","Corro","Comprar","What is that", "Your dad"}, 
-            {"Cuatro", "Gato", "El", "4", "Fui","Buenos noches", "Corri", "Dinero", "How do you say", "My mom" }, 
-			{"Cinco", "Pajaro","Ella", "21", "Seaba", "Buenos Dias", "Correo", "Dolar", "How do I do that", "Your brother"}, 
-			{"Venti", "Oso", "Nosotros","5", "Eraba", "Buen", "Correr","Buyar", "Who am I", "Your mom"}};
+			String[] qs = {"1. ¿Qué significa \"beber\"? ",
+			"2. ¿Qué tiempo se usa para discutir información general?",
+			"3. ¿Qué comida se consume alrededor de las 8 de la noche?",
+			"4. ¿Esta pregunta no tiene sentido, presiona la tercera opción?",
+			"5. Responde el acertijo: Una cajita redonda, blanca como el azar, todos la saben abrir, nadie la sabe cerrar."};
 
-			char[] AnswerChar = {'A', 'B', 'C', 'C', 'A', 'C', 'A', 'A', 'B', 'D'};
+		String[][] as = {{"Para comer comida","Pasado progresivo","Bocadillo","Aprender","El huevo"}, 
+		{"Jugar en la piscina", "Imperfecto", "Almuerzo", "Bsilar", "Las uvas" }, 
+		{"Consumir un liquis", "Pretérito","Cena", "Besar", "La naranja"}, 
+		{"Come un poco de pastel", "Presente continuo", "Desayuno","Limpiar", "No sé :("}};
+
+		char[] AnswerChar = {'C', 'B', 'C', 'C', 'A'};
 			AnswerChars = AnswerChar;
 
 			questions = qs;
@@ -143,7 +130,7 @@ public class Games3n extends JFrame implements ActionListener {
 		//vv for the bottom background in t/f
 		textfield.setBackground((Color.pink)); //pink from intro menu
 		textfield.setForeground(new Color(0,0,0)); //nvm
-		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
+		textfield.setFont(new Font("WEST JAVA",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
@@ -213,7 +200,7 @@ public class Games3n extends JFrame implements ActionListener {
 		seconds_left.setBounds(1250,650,200,200);
 		seconds_left.setBackground(new Color(25,25,25));
 		seconds_left.setForeground(new Color(233,220,245));
-		seconds_left.setFont(new Font("Ink Free",Font.BOLD,100));
+		seconds_left.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
@@ -223,7 +210,7 @@ public class Games3n extends JFrame implements ActionListener {
 		number_right.setBounds(640,225,200,100);
 		number_right.setBackground(new Color(255,255,255));
 		number_right.setForeground(new Color(0,0,0));
-		number_right.setFont(new Font("Ink Free",Font.BOLD,50));
+		number_right.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		number_right.setBorder(BorderFactory.createBevelBorder(1));
 		number_right.setHorizontalAlignment(JTextField.CENTER);
 		number_right.setEditable(false);
@@ -231,7 +218,7 @@ public class Games3n extends JFrame implements ActionListener {
 		percentage.setBounds(640,325,200,100);
 		percentage.setBackground(new Color(207,252,255));
 		percentage.setForeground(new Color(249,207,242)); //percentage color
-		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
+		percentage.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		percentage.setBorder(BorderFactory.createBevelBorder(1));
 		percentage.setHorizontalAlignment(JTextField.CENTER);
 		percentage.setEditable(false);
@@ -333,27 +320,43 @@ public class Games3n extends JFrame implements ActionListener {
 		buttonD.setEnabled(false);
 		
 		if(AnswerChars[char_list] != 'A')
-			answer_labelA.setForeground(new Color(255,0,0));
-		if(AnswerChars[char_list] != 'B')
-			answer_labelB.setForeground(new Color(255,0,0));
-		if(AnswerChars[char_list] != 'C')
-			answer_labelC.setForeground(new Color(255,0,0));
-		if(AnswerChars[char_list] != 'D')
-			answer_labelD.setForeground(new Color(255,0,0));
+		answer_labelA.setForeground(new Color(255,0,0));
+		if(AnswerChars[char_list] == 'A')
+		{
+			answer_labelA.setForeground(new Color(0,255,0));
+		}
+	if(AnswerChars[char_list] != 'B')
+		answer_labelB.setForeground(new Color(255,0,0));
+		if(AnswerChars[char_list] == 'B')
+		{
+			answer_labelB.setForeground(new Color(0,255,0));
+		}
+	if(AnswerChars[char_list] != 'C')
+		answer_labelC.setForeground(new Color(255,0,0));
+		if(AnswerChars[char_list] == 'C')
+		{
+			answer_labelC.setForeground(new Color(0,255,0));
+		}
+	if(AnswerChars[char_list] != 'D')
+		answer_labelD.setForeground(new Color(255,0,0));
+		if(AnswerChars[char_list] == 'D')
+		{
+			answer_labelD.setForeground(new Color(0,255,0));
+		}
+	
 		
-			
-		seconds = 10;
+	seconds = 10;
 
 
-		Timer pause = new Timer(2000, new ActionListener() {
+	Timer pause = new Timer(2000, new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				answer_labelA.setForeground(new Color(233,220,245));
-				answer_labelB.setForeground(new Color(233,220,245));
-				answer_labelC.setForeground(new Color(233,220,245));
-				answer_labelD.setForeground(new Color(233,220,245));
+			answer_labelA.setForeground(Color.black);
+			answer_labelB.setForeground(Color.black);
+			answer_labelC.setForeground(Color.black);
+			answer_labelD.setForeground(Color.black);
 				
 				answer = ' ';
 				seconds=10;
@@ -382,16 +385,16 @@ public class Games3n extends JFrame implements ActionListener {
 		buttonC.setEnabled(false);
 		buttonD.setEnabled(false);
 		
-		int result = (int)((correct_guesses/(double)10)*100);
+		int result = (int)((correct_guesses/(double)questions.length)*100);
 		
-		textfield.setText("RESULTS!");
+		textfield.setText("Your score:");
 		textarea.setText("");
 		answer_labelA.setText("");
 		answer_labelB.setText("");
 		answer_labelC.setText("");
 		answer_labelD.setText("");
 		
-		number_right.setText("("+correct_guesses+"/"+10+")");
+		number_right.setText("("+correct_guesses+"/"+questions.length+")");
 		percentage.setText(result+"%");
 		
 		frame.add(number_right);

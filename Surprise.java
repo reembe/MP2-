@@ -1,117 +1,126 @@
-// //this class just contains everything ive learned about gui, will be deleted when we are done
+//this class just contains everything ive learned about gui, will be deleted when we are done
 
 
 
-// import javax.swing.JOptionPane;
-// import javax.swing.ImageIcon;
-// import javax.swing.JButton;
-// import javax.swing.JFrame;
-// import javax.swing.JLabel;
-// import javax.swing.JMenu;
-// import javax.swing.JMenuBar;
-// import javax.swing.JMenuItem;
 
-// import java.awt.CardLayout;
-// import java.awt.Color;
-// import java.awt.Container;
-// import java.awt.FlowLayout;
-// import java.awt.Font;
-// import java.awt.FontFormatException;
-// import java.awt.event.ActionEvent;
-// import java.awt.event.ActionListener;
-// import java.awt.event.KeyEvent;
-// import java.io.File;
-// import java.io.IOException;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
-// import javax.sound.sampled.*;
+import javax.sound.sampled.*;
 
-// public class Surprise extends JFrame implements ActionListener{
+public class Surprise extends JFrame implements ActionListener{
 
-//     JMenuBar menuBar;
-// 	JMenu fileMenu;
-// 	JMenu editMenu;
-// 	JMenu helpMenu;
-// 	JMenuItem loadItem;
-// 	JMenuItem saveItem;
-// 	JMenuItem exitItem;
-//     JButton button;
-//     JButton buttonA;
-// 	//ImageIcon loadIcon;
-// 	//ImageIcon saveIcon;
-// 	//ImageIcon exitIcon;
+    private static JButton reward;
+    private static JButton returntoMenu;
+    private User use;
+    private static JLabel rewardmessage;
 
-//     public Surprise() throws UnsupportedAudioFileException, IOException, LineUnavailableException
-//     {
+
+    public Surprise(User user) throws UnsupportedAudioFileException, IOException, LineUnavailableException
+    {
+        use = user;
         
-       
-//   //blank screen
 
-       
       
-//         this.setLayout(null);
+        this.setLayout(null);
 
 
 
        
 
-//         JLabel l =  new JLabel();
-//         l.setText("LOTE Helper");
-//         l.setHorizontalTextPosition(JLabel.CENTER);
-//         l.setVerticalTextPosition(JLabel.TOP);
-//         l.setForeground(Color.pink);
-//         l.setFont(new Font("MV Boli", Font.BOLD, 20));
- 
-       
+        JLabel l =  new JLabel();
+        l.setText("So " + user + ", you worked real hard");
+        l.setBounds(50,57,10000000,100);
+        l.setForeground(Color.black);
+        l.setFont(new Font("WEST JAVA", Font.BOLD, 75));
+
+        JLabel j =  new JLabel();
+        j.setText("you better pass your exams now");
+        j.setBounds(150,127,10000000,100);
+        j.setForeground(Color.black);
+        j.setFont(new Font("WEST JAVA", Font.BOLD, 75));
+
+        JLabel k =  new JLabel();
+        k.setText("click the button below to reveal your reward");
+        k.setBounds(150,197,10000000,100);
+        k.setForeground(Color.black);
+        k.setFont(new Font("WEST JAVA", Font.BOLD, 75));
+
+        rewardmessage =  new JLabel();
+        rewardmessage.setText("TIMBITS FOR THE WHOLE CLASS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        rewardmessage.setBounds(300,557,10000000,100);
+        rewardmessage.setForeground(Color.black);
+        rewardmessage.setFont(new Font("WEST JAVA", Font.BOLD, 50));
+
+
+        reward =  new JButton();
+		reward.setBounds(1500,850,400,175);
+		reward.setFont(new Font("WEST JAVA",Font.BOLD,50));
+		reward.setFocusable(false);
+		reward.addActionListener(this);
+		reward.setText("CLICK HERE !!");
+
+        returntoMenu =  new JButton();
+		returntoMenu.setBounds(1600,850,300,175);
+		returntoMenu.setFont(new Font("WEST JAVA",Font.BOLD,50));
+		returntoMenu.setFocusable(false);
+		returntoMenu.addActionListener(this);
+		returntoMenu.setText("Return?");
+
         
-//         this.setTitle("LOTE Helper");
-//         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//         this.setResizable(false);
-//         // this.setSize(1920,1080);
-//         this.setSize(1920,1080);
-//         this.getContentPane().setBackground(Color.pink);
-//         this.setVisible(true);
-//         this.add(l);
-//         // this.add(button);
-//         this.add(buttonA);
+        this.setTitle("SURPRISE?!?!?!");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setSize(1920,1080);
+        this.getContentPane().setBackground(Color.pink);
+        this.setVisible(true);
+        
     
-//         File file = new File("musik.wav");
-//         AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-//         Clip clip = AudioSystem.getClip();
-//         clip.open(audioStream);
-//         clip.start();
+    
+
+        this.add(l);
+        this.add(j);
+        this.add(k);
+        this.add(rewardmessage);
+        this.add(returntoMenu);
+        this.add(reward);
+
+        rewardmessage.setVisible(false);
+        returntoMenu.setVisible(false);
         
   
-//     }
+    }
 
-//     @Override
-//     public void actionPerformed(ActionEvent e) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
        
-//         if (e.getSource() == loadItem)
-//         {
-//            System.out.print("Saved!");
-//         }
-//         if (e.getSource() == exitItem)
-//         {
-//             System.exit(0);
-//         }
-//         if (e.getSource() == buttonA)
-//         {
-//          this.setVisible(false);
-//         // this.setVisible(false);
-//         //  User s= new User("Bob", 12, "Spanish");
-//         //  s.pickLanguage();
-//         //  this.setVisible(true);
-//         //  button.setEnabled(false);
-       
-//             try {
-// 				introductionMenu introductionMenu = new introductionMenu();
-// 			} catch (FontFormatException | IOException e1) {
-// 				// TODO Auto-generated catch block
-// 				e1.printStackTrace();
-// 			}
-   
-    
-//         }
-//     }
-// }
+        if (e.getSource() == returntoMenu)
+        {
+            try {
+                MainMenu MainMenu = new MainMenu(use);
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+           
+        }
+
+        if (e.getSource() == reward)
+        {
+            reward.setVisible(false);
+            rewardmessage.setVisible(true);
+            returntoMenu.setVisible(true);
+           
+        }
+    }
+}
+
     

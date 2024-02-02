@@ -40,8 +40,6 @@ public class introductionMenu extends JFrame implements ActionListener{
         title.setText("Welcome to LOTE Helper!");
         title.setBounds(300,57,10000000,100);
         title.setForeground(Color.black);
-
-        
         title.setFont(sizedFont);
 
         JLabel intro = new JLabel();
@@ -56,11 +54,18 @@ public class introductionMenu extends JFrame implements ActionListener{
         // intro1.setForeground(Color.WHITE);
         // intro1.setFont(sizedFont);
 
-        button = new JButton("Submit");
+        button = new JButton("Submit Name");
 		button.addActionListener(this);
-        button.setBounds(500,600,100,100);
+        button.setBounds(490,600,110,100);
         button.setBackground(Color.white);
 		button.setForeground(Color.black);
+
+
+        JLabel name = new JLabel();
+        name.setText("Name:");
+        name.setBounds(200,430,100000,100);
+        name.setForeground(Color.black);
+        name.setFont(sizedFont);
 
 		
 		textField = new JTextField();
@@ -70,7 +75,7 @@ public class introductionMenu extends JFrame implements ActionListener{
 		textField.setForeground(Color.pink);
 		textField.setBackground(Color.white);
 		textField.setCaretColor(Color.pink);
-		textField.setText("Name: ");
+		// textField.setText("Name: ");
 
         option1 = new JButton("Spanish");
 		option1.addActionListener(this);
@@ -104,6 +109,7 @@ public class introductionMenu extends JFrame implements ActionListener{
         this.setVisible(true);
         this.add(title);
         this.add(intro);
+        this.add(name);
         //this.add(logogo);
         this.add(button);
         this.add(option1);

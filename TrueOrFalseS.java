@@ -92,7 +92,7 @@ public class TrueOrFalseS implements ActionListener{
 		textfield.setBounds(-250,0,1920,50);
 		textfield.setBackground(new Color(255,255,255));
 		textfield.setForeground(new Color(25,255,0));
-		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
+		textfield.setFont(new Font("WEST JAVA",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
@@ -121,7 +121,7 @@ public class TrueOrFalseS implements ActionListener{
 		seconds_left.setBounds(1250,650,200,200);
 		seconds_left.setBackground(Color.black);
 		seconds_left.setForeground(Color.pink);
-		seconds_left.setFont(new Font("Ink Free",Font.BOLD,60));
+		seconds_left.setFont(new Font("WEST JAVA",Font.BOLD,60));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
@@ -131,7 +131,7 @@ public class TrueOrFalseS implements ActionListener{
 		number_right.setBounds(620,225,200,100);
 		number_right.setBackground(new Color(255,255,255));
 		number_right.setForeground(new Color(249,207,242));
-		number_right.setFont(new Font("Ink Free",Font.BOLD,50));
+		number_right.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		number_right.setBorder(BorderFactory.createBevelBorder(1));
 		number_right.setHorizontalAlignment(JTextField.CENTER);
 		number_right.setEditable(false);
@@ -139,7 +139,7 @@ public class TrueOrFalseS implements ActionListener{
 		percentage.setBounds(620,325,200,100);
 		percentage.setBackground(new Color(255,255,255));
 		percentage.setForeground(new Color(249,207,242));
-		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
+		percentage.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		percentage.setBorder(BorderFactory.createBevelBorder(1));
 		percentage.setHorizontalAlignment(JTextField.CENTER);
 		percentage.setEditable(false);
@@ -211,8 +211,13 @@ public class TrueOrFalseS implements ActionListener{
 		
 		if(AnswerString[char_list].equals("false"))
 			buttonA.setForeground(new Color(255,90,85));
+			if(AnswerString[char_list].equals("false"))
+			buttonB.setForeground(new Color(0,255,0));
+
 		if(AnswerString[char_list].equals("true")) {
 		    buttonB.setForeground(new Color(255,90,85));
+			if(AnswerString[char_list].equals("true")) {
+				buttonA.setForeground(new Color(0,255,0));
 		}
 
 
@@ -223,13 +228,11 @@ public class TrueOrFalseS implements ActionListener{
 				
 				buttonA.setForeground(Color.black);
 				buttonB.setForeground(Color.black);
-				
 				answer = " ";
 				seconds=10;
 				seconds_left.setText(String.valueOf(seconds));
 				buttonA.setEnabled(true);
 				buttonB.setEnabled(true);
-			
 				nextQuestion();
 				
 			}
@@ -238,23 +241,19 @@ public class TrueOrFalseS implements ActionListener{
 		pause.setRepeats(false);
 		pause.start();
 	}
+	}
 
 	public void results(){
 		
 		buttonA.setEnabled(false);
-		buttonB.setEnabled(false);
-				
-		int result = (int)((correct_guesses/(double)10)*100);
-		
-		textfield.setText("RESULTS!");
+		buttonB.setEnabled(false);	
+		int result = (int)((correct_guesses/(double)questions.length)*100);
+		textfield.setText("Your score:");
 		textarea.setText("");
-		
-		number_right.setText("("+correct_guesses+"/"+10+")");
+		number_right.setText("("+correct_guesses+"/"+questions.length+")");
 		percentage.setText(result+"%");
-		
 		frame.add(number_right);
 		frame.add(percentage);
-
 		returnHome.setVisible(true);	
 		
 	}

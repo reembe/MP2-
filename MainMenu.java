@@ -42,6 +42,7 @@ private static User user;
 private ImageIcon logo;
 private JLabel logol;
 private JMenuItem restart;
+private static Clip clip;
 private JMenuItem save;
 
 
@@ -49,15 +50,22 @@ private JMenuItem save;
     {
         user = s;
 
+        File file = new File("candyland.wav");
+		AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+		clip = AudioSystem.getClip();
+		clip.open(audioStream);
+		clip.start();
+	
+
         // user.count = 0;
 
-        // ImageIcon logo = new ImageIcon("LOTE_HELPER_logo.jpg");
-        // logol =  new JLabel();
-        // logol.setBounds(500,600,400,150);
-        // logol.setForeground(Color.pink);
-        // logol.setFont(new Font("MV Boli", Font.BOLD, 20));
+        ImageIcon logo = new ImageIcon("emojiinto.jpg");
+        logol =  new JLabel();
+        logol.setBounds(500,600,400,150);
+        logol.setForeground(Color.pink);
+        logol.setFont(new Font("MV Boli", Font.BOLD, 20));
 
-        // logol.setIcon(logo);
+        logol.setIcon(logo);
 
         menuBar = new JMenuBar();
         saveMenu = new JMenu("Save");
@@ -117,11 +125,6 @@ private JMenuItem save;
         title.setForeground(Color.black);
         // title.setFont(sizedFont);
 
-        // submessage.setText("Your current language");
-        // submessage.setBounds(0,57,10000000,100);
-        // submessage.setForeground(Color.black);
-        // // submessage.setFont(sizedFont);
-
 
 
         save.setMnemonic(KeyEvent.VK_S);
@@ -153,8 +156,6 @@ private JMenuItem save;
         menuBar.add(restartMenu);
         restartMenu.add(restart);
         saveMenu.add(save);
-        // menuBar.add(viewAccount);
-        // menuBar.add(helpMenu);
         this.setJMenuBar(menuBar);
 
         restart.addActionListener(this);
@@ -167,6 +168,7 @@ private JMenuItem save;
        
         if (e.getSource() == mcQuiz)
         {
+            clip.stop();
             Games Games = new Games("mcQuiz", user);
                 Games.mcQuiz();
                 this.setVisible(false);
@@ -174,6 +176,7 @@ private JMenuItem save;
         }
         if (e.getSource() == mcQuiz2)
         {
+            clip.stop();
             Games2 Games2 = new Games2("mcQuiz", user);
                 Games2.mcQuiz();
                 this.setVisible(false);
@@ -181,6 +184,7 @@ private JMenuItem save;
         }
         if (e.getSource() == mcQuiz3)
         {
+            clip.stop();
             Games3n Games = new Games3n("mcQuiz", user);
                 Games.mcQuiz();
                 this.setVisible(false);
@@ -190,11 +194,13 @@ private JMenuItem save;
         {
             if (user.getLanguage().equals("french"))
             {
+                clip.stop();
             TrueOrFalseF TrueOrFalseF = new TrueOrFalseF();
             TrueOrFalseF.Quiz(user);
             this.setVisible(false);
             } 
             else{
+                clip.stop();
             TrueOrFalseS TrueOrFalseS = new TrueOrFalseS();
             TrueOrFalseS.Quiz(user);
             this.setVisible(false);
@@ -207,6 +213,7 @@ private JMenuItem save;
             {
             Listening Listening = new Listening(user);
             try {
+                clip.stop();
                 Listening.Quiz();
             } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
                 // TODO Auto-generated catch block
@@ -217,6 +224,7 @@ private JMenuItem save;
             else{
                 Listenings Listenings = new Listenings(user);
                 try {
+                    clip.stop();
                     Listenings.Quiz();
                 } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
                     // TODO Auto-generated catch block
@@ -229,11 +237,22 @@ private JMenuItem save;
         {
             try {
                 introductionMenu introductionMenu = new introductionMenu();
+                clip.stop();
                 this.setVisible(false);
             } catch (FontFormatException | IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
+        }
+        if (e.getSource() == surprise)
+        {
+            try {
+                clip.stop();
+                Surprise surprise = new Surprise(user);
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } 
         }
 
       

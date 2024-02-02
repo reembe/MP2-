@@ -63,7 +63,7 @@ public class User {
 
     public String toString()
     {
-        return "User: " + name + ", " + language + "Learner";
+        return name + ", " + language + " learner";
 
     }
 

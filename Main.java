@@ -1,11 +1,10 @@
 /** 
   * @author Reem Belafkih, Fatoumata Barry
-  * @version 7.5
+  * @version 1.20.2
 **/
 
 import java.awt.FontFormatException;
 import java.io.IOException;
-
 import javax.sound.sampled.*;
 
 

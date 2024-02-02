@@ -118,7 +118,7 @@ public class Listenings extends JFrame implements ActionListener {
 		//vv for the bottom background in t/f
 		textfield.setBackground((Color.pink)); //pink from intro menu
 		textfield.setForeground(new Color(0,0,0)); //nvm
-		textfield.setFont(new Font("Ink Free",Font.BOLD,30));
+		textfield.setFont(new Font("WEST JAVA",Font.BOLD,30));
 		textfield.setBorder(BorderFactory.createBevelBorder(1));
 		textfield.setHorizontalAlignment(JTextField.CENTER);
 		textfield.setEditable(false);
@@ -182,7 +182,7 @@ public class Listenings extends JFrame implements ActionListener {
 		seconds_left.setBounds(1250,650,200,200);
 		seconds_left.setBackground(new Color(25,25,25));
 		seconds_left.setForeground(new Color(233,220,245));
-		seconds_left.setFont(new Font("Ink Free",Font.BOLD,100));
+		seconds_left.setFont(new Font("WEST JAVA",Font.BOLD,100));
 		seconds_left.setBorder(BorderFactory.createBevelBorder(1));
 		seconds_left.setOpaque(true);
 		seconds_left.setHorizontalAlignment(JTextField.CENTER);
@@ -191,7 +191,7 @@ public class Listenings extends JFrame implements ActionListener {
 		number_right.setBounds(225,225,200,100);
 		number_right.setBackground(new Color(255,255,255));
 		number_right.setForeground(new Color(207,252,255));
-		number_right.setFont(new Font("Ink Free",Font.BOLD,50));
+		number_right.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		number_right.setBorder(BorderFactory.createBevelBorder(1));
 		number_right.setHorizontalAlignment(JTextField.CENTER);
 		number_right.setEditable(false);
@@ -199,7 +199,7 @@ public class Listenings extends JFrame implements ActionListener {
 		percentage.setBounds(225,325,200,100);
 		percentage.setBackground(new Color(207,252,255));
 		percentage.setForeground(new Color(207,252,255));
-		percentage.setFont(new Font("Ink Free",Font.BOLD,50));
+		percentage.setFont(new Font("WEST JAVA",Font.BOLD,50));
 		percentage.setBorder(BorderFactory.createBevelBorder(1));
 		percentage.setHorizontalAlignment(JTextField.CENTER);
 		percentage.setEditable(false);
@@ -294,15 +294,25 @@ public class Listenings extends JFrame implements ActionListener {
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		
-		
 		if(AnswerChars[char_list] != 'A')
 			answer_labelA.setForeground(new Color(255,0,0));
+			if(AnswerChars[char_list] == 'A')
+			{
+				answer_labelA.setForeground(new Color(0,255,0));
+			}
 		if(AnswerChars[char_list] != 'B')
 			answer_labelB.setForeground(new Color(255,0,0));
+			if(AnswerChars[char_list] == 'B')
+			{
+				answer_labelB.setForeground(new Color(0,255,0));
+			}
 		if(AnswerChars[char_list] != 'C')
 			answer_labelC.setForeground(new Color(255,0,0));
-	
-			
+			if(AnswerChars[char_list] == 'C')
+			{
+				answer_labelC.setForeground(new Color(0,255,0));
+			}
+		
 		seconds = 10;
 
 
@@ -340,16 +350,16 @@ public class Listenings extends JFrame implements ActionListener {
 		buttonB.setEnabled(false);
 		buttonC.setEnabled(false);
 		
-		int result = (int)((correct_guesses/(double)10)*100);
+		int result = (int)((correct_guesses/(double)questions.length)*100);
 		
-		textfield.setText("RESULTS!");
+		textfield.setText("Your score:");
 		textarea.setText("");
 		answer_labelA.setText("");
 		answer_labelB.setText("");
 		answer_labelC.setText("");
 		
 		
-		number_right.setText("("+correct_guesses+"/"+10+")");
+		number_right.setText("("+correct_guesses+"/"+questions.length+")");
 		percentage.setText(result+"%");
 		
 		frame.add(number_right);
